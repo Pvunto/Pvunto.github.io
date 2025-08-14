@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hobbies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-blur"></div>
+    <header class="main-header">
+        <h1>Hobbies</h1>
+    </header>
+    <nav class="island-nav" style="display:flex;justify-content:center;margin-top:24px;position:relative;">
+        <button id="menuBtn" style="font-family:inherit;font-size:20px;font-weight:bold;padding:10px 20px;border-radius:8px;border:none;background:#eee;cursor:pointer;">Pages ▼</button>
+        <div id="menuContent" style="display:none;position:absolute;left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.95);box-shadow:0 2px 8px rgba(0,0,0,0.12);border-radius:12px;padding:20px 30px;margin-top:10px;z-index:10;">
+            <a href="index.html" id="menuHome" style="display:block;margin-bottom:12px;font-size:18px;color:#111;text-decoration:none;">Home</a>
+            <a href="games.html" id="menuGames" style="display:block;margin-bottom:12px;font-size:18px;color:#111;text-decoration:none;">Video Games I Play</a>
+            <a href="hobbies.html" id="menuHobbies" class="active" style="display:block;margin-bottom:12px;font-size:18px;color:#111;text-decoration:none;">Hobbies</a>
+        </div>
+    </nav>
+    <main>
+        <section class="transparent-box">
+            <h2>Page under construction</h2>
+            <p>This page will soon be updated with my hobbies and passions. Come back soon!</p>
+        </section>
+    </main>
+    <footer>
+        <p>2025 &mdash; Made by Punto</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/punto_plk/" target="_blank">Instagram</a> |
+            <a href="https://www.youtube.com/@punto_FO" target="_blank">YouTube</a> |
+            <a href="https://steamcommunity.com/profiles/76561199097297410/" target="_blank">Steam</a>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('menuBtn').onclick = function() {
+            var menu = document.getElementById('menuContent');
+            menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+        };
+        document.addEventListener('click', function(e) {
+            var menu = document.getElementById('menuContent');
+            var btn = document.getElementById('menuBtn');
+            if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                menu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

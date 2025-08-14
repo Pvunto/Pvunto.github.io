@@ -1,0 +1,154 @@
+/* Unificato da home.css, games.css, hobbies.css */
+body, h1, h2, h3, h4, h5, h6, p, nav, footer, .main-header, .transparent-box, .transparent-box h2, .transparent-box p, nav a, footer, .social-links a {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+body {
+    background: #181818 !important;
+    color: #fff;
+}
+.bg-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background: linear-gradient(135deg, #2d2d2d 0%, #4a148c 100%) !important;
+    background-size: cover !important;
+    filter: none;
+    opacity: 1;
+}
+body > *:not(.bg-blur) {
+    position: relative;
+    z-index: 1;
+}
+.main-header h1 {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #111;
+    margin-top: 40px;
+    font-size: 5em !important;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-shadow: 0 4px 24px #000, 0 1px 0 #fff;
+}
+h1, h2, h3, h4, h5, h6, .main-header h1 {
+    color: #fff !important;
+}
+.island-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+    z-index: 1000 !important;
+    position: relative;
+}
+#menuContent {
+    display: flex;
+    gap: 24px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    border-radius: 24px;
+    padding: 16px 32px;
+    align-items: center;
+    z-index: 1000 !important;
+    position: relative;
+}
+#menuBtn {
+    z-index: 1000 !important;
+    position: relative;
+    color: #111 !important;
+}
+#menuContent a {
+    font-size: 20px;
+    color: #111 !important;
+    text-decoration: none;
+    font-weight: bold;
+    background: transparent;
+}
+#menuContent a:hover {
+    color: #0078d7;
+    background: #eee;
+}
+#menuContent a.active {
+    background: #222;
+    color: #fff !important;
+    border-radius: 8px;
+    padding: 4px 12px;
+}
+.transparent-box {
+    background: rgba(30,30,30,0.5);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+    border-radius: 16px;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    color: #fff !important;
+}
+.school-box {
+    background: rgba(30,30,30,0.5);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+    border-radius: 16px;
+    max-width: 700px;
+    margin: 30px auto 0 auto;
+    padding: 30px;
+    color: #fff !important;
+}
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #fff !important;
+    font-size: 16px;
+}
+.social-links {
+    margin-top: 10px;
+    text-align: center;
+}
+.social-links a {
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+    transition: color 0.2s;
+}
+.social-links a:hover {
+    color: #0078d7;
+}
+.games-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin: 40px auto;
+    align-items: center;
+}
+.row {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+}
+.game-box {
+    width: 600px;
+    height: 900px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+    border: 2px solid #fff;
+}
+.game-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    display: block;
+}
+@media (max-width: 2000px) {
+    .game-box {
+        width: 300px;
+        height: 450px;
+    }
+}
+.options-nav, #optionsMenu, #optionsBtn {
+    z-index: 1002 !important;
+    position: relative;
+}

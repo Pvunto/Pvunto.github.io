@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Games I Play</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-blur"></div>
+    <header class="main-header">
+        <h1>Video Games I Play</h1>
+    </header>
+    <nav class="island-nav" style="display:flex;justify-content:center;margin-top:24px;position:relative;">
+        <button id="menuBtn" style="font-family:inherit;font-size:20px;font-weight:bold;padding:10px 20px;border-radius:8px;border:none;background:#eee;cursor:pointer;">Pages ▼</button>
+        <div id="menuContent" style="display:none;position:absolute;left:50%;transform:translateX(-50%);background:rgba(255,255,255,0.95);box-shadow:0 2px 8px rgba(0,0,0,0.12);border-radius:12px;padding:20px 30px;margin-top:10px;z-index:10;">
+            <a href="index.html" id="menuHome" style="display:block;margin-bottom:12px;font-size:18px;color:#111;text-decoration:none;">Home</a>
+            <a href="games.html" id="menuGames" class="active" style="display:block;margin-bottom:12px;font-size:18px;color:#111;text-decoration:none;">Video Games I Play</a>
+            <a href="hobbies.html" id="menuHobbies" style="display:block;margin-bottom:12px;font-size:18px;color:#111;text-decoration:none;">Hobbies</a>
+        </div>
+    </nav>
+    <script>
+        document.getElementById('menuBtn').onclick = function(e) {
+            e.stopPropagation();
+            var menu = document.getElementById('menuContent');
+            menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
+        };
+        document.addEventListener('click', function(e) {
+            var menu = document.getElementById('menuContent');
+            var btn = document.getElementById('menuBtn');
+            if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                menu.style.display = 'none';
+            }
+        });
+        // Chiudi il menù quando si clicca su un link
+        document.getElementById('menuHome').onclick = function() {
+            document.getElementById('menuContent').style.display = 'none';
+        };
+        document.getElementById('menuGames').onclick = function() {
+            document.getElementById('menuContent').style.display = 'none';
+        };
+        document.getElementById('menuHobbies').onclick = function() {
+            document.getElementById('menuContent').style.display = 'none';
+        };
+    </script>
+    <main>
+        <section class="transparent-box">
+            <h2>Video Games I Play</h2>
+            <p>Here are some of the video games I like the most:</p>
+        </section>
+        <section class="games-grid">
+            <div class="row">
+                <div class="game-box"><img src="img/gamesicons/arma 3.jpg" alt="Arma 3" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/bioshock 2.jpg" alt="Bioshock 2" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/bioshock infinite.png" alt="Bioshock Infinite" class="game-img"></div>
+            </div>
+            <div class="row">
+                <div class="game-box"><img src="img/gamesicons/bioshock.jpg" alt="Bioshock" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/black mesa.jpg" alt="Black Mesa" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/deep rock galactic.png" alt="Deep Rock Galactic" class="game-img"></div>
+            </div>
+            <div class="row">
+                <div class="game-box"><img src="img/gamesicons/firewatch.jpg" alt="Firewatch" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/foxhole.png" alt="Foxhole" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/gmod.jpg" alt="Gmod" class="game-img"></div>
+            </div>
+            <div class="row">
+                <div class="game-box"><img src="img/gamesicons/half life 2.jpg" alt="Half Life 2" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/hell let loose.jpg" alt="Hell Let Loose" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/helldivers 2.jpg" alt="Helldivers 2" class="game-img"></div>
+            </div>
+            <div class="row">
+                <div class="game-box"><img src="img/gamesicons/Hoi4.jpg" alt="Hoi4" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/hotline miami 2 WN.jpg" alt="Hotline Miami 2" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/ksp.jpg" alt="KSP" class="game-img"></div>
+            </div>
+            <div class="row">
+                <div class="game-box"><img src="img/gamesicons/left 4 dead.jpg" alt="Left 4 Dead" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/mage arena.jpg" alt="Mage Arena" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/metro exodus.jpg" alt="Metro Exodus" class="game-img"></div>
+            </div>
+            <div class="row">
+                <div class="game-box"><img src="img/gamesicons/night in the woods.jpg" alt="Night in the Woods" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/oneshot.jpg" alt="Oneshot" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/outher wilds.jpg" alt="Outer Wilds" class="game-img"></div>
+            </div>
+            <div class="row">
+                <div class="game-box"><img src="img/gamesicons/payday 2.jpg" alt="Payday 2" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/postal 2.jpg" alt="Postal 2" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/sea of thieves.jpg" alt="Sea of Thieves" class="game-img"></div>
+            </div>
+            <div class="row">
+                <div class="game-box"><img src="img/gamesicons/secret laboratory.jpg" alt="Secret Laboratory" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/sons of the forest.png" alt="Sons of the Forest" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/space hulk deathwing.jpg" alt="Space Hulk Deathwing" class="game-img"></div>
+            </div>
+            <div class="row">
+                <div class="game-box"><img src="img/gamesicons/stanley parable UD.jpg" alt="Stanley Parable UD" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/subnautica.jpg" alt="Subnautica" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/tf2.jpg" alt="TF2" class="game-img"></div>
+            </div>
+            <div class="row">
+                <div class="game-box"><img src="img/gamesicons/the finals.jpg" alt="The Finals" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/voices of the void.jpg" alt="Voices of the Void" class="game-img"></div>
+                <div class="game-box"><img src="img/gamesicons/war thunder.jpg" alt="War Thunder" class="game-img"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>2025 &mdash; Made by Punto</p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/punto_plk/" target="_blank">Instagram</a> |
+            <a href="https://www.youtube.com/@punto_FO" target="_blank">YouTube</a> |
+            <a href="https://steamcommunity.com/profiles/76561199097297410/" target="_blank">Steam</a>
+        </div>
+    </footer>
+</body>
+</html>
