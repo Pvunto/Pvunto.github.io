@@ -11,3 +11,8 @@
 @keyframes logoPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08) rotate(4deg)}}
 @keyframes footerGlow{0%,100%{border-top-color:var(--red)}50%{border-top-color:var(--yellow)}}
 @media(prefers-reduced-motion:reduce){.ticker,.photo:after,.logo,.footer{animation:none}}
+
+/* Layer JavaScript: reveal, parallax, tilt e ripple */
+.js-ready .js-reveal{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.23,1,.32,1) var(--reveal-delay),transform .75s cubic-bezier(.23,1,.32,1) var(--reveal-delay)}
+.js-ready .js-reveal.is-visible{opacity:1;transform:translateY(0)}
+.ticker{position:relative}.ticker-content{display:inline-flex;min-width:max-content;will-change:transform}.photo{transform:translate3d(0,var(--parallax-y,0),0);transition:transform .25s ease-out}.card{transform:perspective(800px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg))}.card.is-tilting{transition:transform .12s ease-out,box-shadow .22s ease}.back{position:relative;overflow:hidden}.js-ripple{position:absolute;width:8px;height:8px;border-radius:50%;background:rgba(8,8,8,.28);transform:translate(-50%,-50%) scale(1);animation:ripple .55s ease-out forwards;pointer-events:none}@keyframes ripple{to{opacity:0;transform:translate(-50%,-50%) scale(26)}}
