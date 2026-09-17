@@ -1,1 +1,47 @@
-document.addEventListener('DOMContentLoaded',()=>{const items=document.querySelectorAll('.reveal');const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.14});items.forEach((el,i)=>{el.style.transitionDelay=`${Math.min(i*45,240)}ms`;io.observe(el)});const ticker=document.querySelector('.ticker');if(ticker){const text=ticker.innerHTML;ticker.innerHTML=`<div class="ticker-run">${text}${text}</div>`;const run=ticker.firstElementChild;let x=0;let t=0;const move=n=>{x-=(n-t)*.035;t=n;if(x<-run.scrollWidth/2)x=0;run.style.transform=`translateX(${x}px)`;requestAnimationFrame(move)};requestAnimationFrame(move)}const portrait=document.querySelector('.portrait');if(portrait){window.addEventListener('scroll',()=>{const r=portrait.getBoundingClientRect();portrait.style.setProperty('--y',`${(innerHeight/2-(r.top+r.height/2))*.03}px`)},{passive:true})}});
+document.addEventListener("DOMContentLoaded", () => {
+  const items = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver(
+    es =>
+      es.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add("show");
+          io.unobserve(e.target);
+        }
+      }),
+    { threshold: 0.14 }
+  );
+  items.forEach((el, i) => {
+    el.style.transitionDelay = `${Math.min(i * 45, 240)}ms`;
+    io.observe(el);
+  });
+  const ticker = document.querySelector(".ticker");
+  if (ticker) {
+    const text = ticker.innerHTML;
+    ticker.innerHTML = `<div class="ticker-run">${text}${text}</div>`;
+    const run = ticker.firstElementChild;
+    let x = 0;
+    let t = 0;
+    const move = n => {
+      x -= (n - t) * 0.035;
+      t = n;
+      if (x < -run.scrollWidth / 2) x = 0;
+      run.style.transform = `translateX(${x}px)`;
+      requestAnimationFrame(move);
+    };
+    requestAnimationFrame(move);
+  }
+  const portrait = document.querySelector(".portrait");
+  if (portrait) {
+    window.addEventListener(
+      "scroll",
+      () => {
+        const r = portrait.getBoundingClientRect();
+        portrait.style.setProperty(
+          "--y",
+          `${(innerHeight / 2 - (r.top + r.height / 2)) * 0.03}px`
+        );
+      },
+      { passive: true }
+    );
+  }
+});
