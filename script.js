@@ -1,47 +1,61 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const items = document.querySelectorAll(".reveal");
-  const io = new IntersectionObserver(
-    es =>
-      es.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add("show");
-          io.unobserve(e.target);
-        }
-      }),
-    { threshold: 0.14 }
+  document.documentElement.classList.add("js-ready");
+
+  const revealItems = document.querySelectorAll(".reveal");
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.16 }
   );
-  items.forEach((el, i) => {
-    el.style.transitionDelay = `${Math.min(i * 45, 240)}ms`;
-    io.observe(el);
+
+  revealItems.forEach((item, index) => {
+    item.style.setProperty("--reveal-delay", `${Math.min(index * 70, 350)}ms`);
+    revealObserver.observe(item);
   });
+
   const ticker = document.querySelector(".ticker");
   if (ticker) {
-    const text = ticker.innerHTML;
-    ticker.innerHTML = `<div class="ticker-run">${text}${text}</div>`;
-    const run = ticker.firstElementChild;
-    let x = 0;
-    let t = 0;
-    const move = n => {
-      x -= (n - t) * 0.035;
-      t = n;
-      if (x < -run.scrollWidth / 2) x = 0;
-      run.style.transform = `translateX(${x}px)`;
-      requestAnimationFrame(move);
-    };
-    requestAnimationFrame(move);
+    const content = ticker.innerHTML;
+    ticker.innerHTML = `<div class="ticker-track">${content}${content}</div>`;
+    ticker.classList.add("is-animated");
   }
+
   const portrait = document.querySelector(".portrait");
-  if (portrait) {
+  if (
+    portrait &&
+    window.matchMedia("(prefers-reduced-motion: no-preference)").matches
+  ) {
     window.addEventListener(
       "scroll",
       () => {
-        const r = portrait.getBoundingClientRect();
+        const distance = portrait.getBoundingClientRect().top * -0.035;
         portrait.style.setProperty(
-          "--y",
-          `${(innerHeight / 2 - (r.top + r.height / 2)) * 0.03}px`
+          "--parallax-y",
+          `${Math.max(-18, Math.min(18, distance))}px`
         );
       },
       { passive: true }
     );
   }
+
+  document.querySelectorAll(".tile, .socials a, .back").forEach(element => {
+    element.addEventListener("pointermove", event => {
+      if (window.matchMedia("(hover: none)").matches) return;
+      const box = element.getBoundingClientRect();
+      const x = ((event.clientX - box.left) / box.width - 0.5) * 4;
+      const y = ((event.clientY - box.top) / box.height - 0.5) * 4;
+      element.style.setProperty("--tilt-x", `${-y}deg`);
+      element.style.setProperty("--tilt-y", `${x}deg`);
+    });
+
+    element.addEventListener("pointerleave", () => {
+      element.style.setProperty("--tilt-x", "0deg");
+      element.style.setProperty("--tilt-y", "0deg");
+    });
+  });
 });

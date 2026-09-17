@@ -1,4 +1,4 @@
-# Alex — sito personale
+# Alberto — sito personale
 
 Sito personale statico realizzato con **HTML, CSS e JavaScript**.
 
