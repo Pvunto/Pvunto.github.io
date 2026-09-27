@@ -41,3 +41,12 @@ In `index.html`, nella sezione `#contact`, sostituisci i segnaposto con il tuo i
 Il sito non richiede una build. In **Settings → Pages**, seleziona **Deploy from a branch**, branch `main`, cartella `/ (root)`.
 
 URL: `https://pvunto.github.io`
+
+## Aggiornamento automatico Steam
+
+Il workflow `.github/workflows/update-steam-games.yml` controlla ogni ora il profilo Steam pubblico `76561199097297410`. Se trova nuovi giochi recenti o nuovi generi, aggiorna automaticamente `games.html` e pubblica il commit sul branch `main`.
+
+- non richiede password, Steam Guard o API key;
+- usa solo dati pubblici del profilo e il catalogo pubblico Steam;
+- se Steam risponde con un limite temporaneo, mantiene la pagina precedente e riprova al controllo successivo;
+- può essere avviato manualmente da **Actions → Update Steam games → Run workflow**.
