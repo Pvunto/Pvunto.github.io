@@ -25,6 +25,8 @@ jobs:
 
       - name: Update games page from public Steam profile
         run: python3 scripts/update_games.py
+        env:
+          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
 
       - name: Commit and publish if changed
         run: |

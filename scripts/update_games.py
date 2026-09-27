@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import html
 import json
+import os
 import re
 import sys
 import time
@@ -96,6 +97,23 @@ def profile_count(profile: str) -> str:
     return match.group(1) if match else "119"
 
 
+def total_playtime_hours() -> int | None:
+    api_key = os.environ.get("STEAM_API_KEY", "").strip()
+    if not api_key:
+        return None
+    try:
+        raw = get(
+            "https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?"
+            f"key={api_key}&steamid=76561199097297410&format=json"
+        )
+        payload = json.loads(raw)
+        minutes = sum(item.get("playtime_forever", 0) for item in payload.get("response", {}).get("games", []))
+        return round(minutes / 60)
+    except Exception as error:
+        print(f"Steam total playtime unavailable: {error}")
+        return None
+
+
 def card(game: dict[str, str], index: int) -> str:
     title = html.escape(game["title"].upper())
     appid = game["appid"]
@@ -137,6 +155,12 @@ def main() -> int:
     max_hours = max((float(item["hours"]) for item in games if item["hours"] != "—"), default=0)
     status = "ONLINE" if "Currently Online" in profile else "OFFLINE"
     stats = f'''    <section class="steam-stats reveal"><div><span>{html.escape(total)}</span><b>giochi<br />nel profilo</b></div><div><span>{max_hours:g}h</span><b>record personale<br />recente</b></div><div><span>{status}</span><b>ultimo check<br />profilo pubblico</b></div></section>'''
+    total_hours = total_playtime_hours()
+    totals = (
+        f'''    <section class="total-playtime reveal is-synced"><div><p class="eyebrow">TOTAL PLAYTIME / STEAM API</p><h2>{total_hours:,} <span>ore</span></h2><p>Tempo complessivo registrato sui giochi visibili del profilo Steam.</p></div><strong>SYNC<br />OK</strong></section>'''
+        if total_hours is not None
+        else '''    <section class="total-playtime reveal"><div><p class="eyebrow">TOTAL PLAYTIME / STEAM API</p><h2>N/D <span>ore</span></h2><p>Imposta il secret STEAM_API_KEY nelle Actions della repository per calcolare il totale del profilo.</p></div><strong>SYNC<br />LOCKED</strong></section>'''
+    )
     rotation = '''    <section class="rows game-rotation"><div class="rotation-head"><p class="eyebrow">CURRENT ROTATION</p><span>aggiornato automaticamente da Steam</span></div>\n''' + "\n".join(card(game, i) for i, game in enumerate(games, 1)) + "\n    </section>"
     genre_set = []
     for game in games:
@@ -147,6 +171,7 @@ def main() -> int:
     genre_board = f'''    <section class="genre-board reveal"><p class="eyebrow">GENRE SIGNAL</p><h2>Le mie<br /><span>frequenze.</span></h2><div class="genre-chips">{chips}</div></section>'''
     source = PAGE.read_text()
     source = replace_block(source, "STATS", stats)
+    source = replace_block(source, "TOTALS", totals)
     source = replace_block(source, "ROTATION", rotation)
     source = replace_block(source, "GENRES", genre_board)
     PAGE.write_text(source)

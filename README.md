@@ -50,3 +50,7 @@ Il workflow `.github/workflows/update-steam-games.yml` controlla ogni ora il pro
 - usa solo dati pubblici del profilo e il catalogo pubblico Steam;
 - se Steam risponde con un limite temporaneo, mantiene la pagina precedente e riprova al controllo successivo;
 - può essere avviato manualmente da **Actions → Update Steam games → Run workflow**.
+
+### Playtime totale
+
+Per attivare il totale complessivo delle ore, crea una Steam Web API key e aggiungila nella repository in **Settings → Secrets and variables → Actions → New repository secret** con nome `STEAM_API_KEY`. Il valore non viene mai scritto nel sito o nei log. Senza questo secret la pagina mostra `N/D ore` invece di inventare una statistica.
