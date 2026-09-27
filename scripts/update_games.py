@@ -161,7 +161,7 @@ def main() -> int:
         if total_hours is not None
         else '''    <section class="total-playtime reveal"><div><p class="eyebrow">TOTAL PLAYTIME / STEAM API</p><h2>N/D <span>ore</span></h2><p>Imposta il secret STEAM_API_KEY nelle Actions della repository per calcolare il totale del profilo.</p></div><strong>SYNC<br />LOCKED</strong></section>'''
     )
-    rotation = '''    <section class="rows game-rotation"><div class="rotation-head"><p class="eyebrow">CURRENT ROTATION</p><span>aggiornato automaticamente da Steam</span></div>\n''' + "\n".join(card(game, i) for i, game in enumerate(games, 1)) + "\n    </section>"
+    rotation = '''    <section class="rows game-rotation"><div class="rotation-head"><p class="eyebrow">03 / ATTIVITÀ RECENTE</p><span>aggiornato automaticamente da Steam</span></div>\n''' + "\n".join(card(game, i) for i, game in enumerate(games, 1)) + "\n    </section>"
     genre_set = []
     for game in games:
         for genre in genres_for(game["appid"]):
