@@ -1,76 +1,57 @@
 <!doctype html>
 <html lang="it">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Il sito personale di Alberto: passioni, hobby, studio e contatti." />
-    <title>Alberto — cose che mi accendono</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css?v=5" />
-  </head>
-  <body>
-    <div class="grain" aria-hidden="true"></div>
-    <div class="page">
-      <header class="top">
-        <a class="brand" href="index.html" aria-label="Torna alla home"><span>AV</span><b>ALBERTO / 2026</b></a>
-        <nav aria-label="Navigazione principale">
-          <a class="active" href="#home">home</a>
-          <a href="#passioni">passioni</a>
-          <a href="#studio">studio</a>
-          <a href="#contatti">contatti</a>
-        </nav>
-        <span class="online"><i></i>disponibile per nuove idee</span>
-      </header>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Alberto — appunti, passioni e cose che sto imparando." />
+  <title>Alberto / Field notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=6" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="logo" href="index.html"><span>AV</span><small>FIELD NOTES<br />2026—∞</small></a>
+    <nav aria-label="Navigazione"><a class="active" href="index.html">home</a><a href="#about">about</a><a href="#interests">interessi</a><a href="#contact">contatti</a></nav>
+    <span class="issue">issue no. 01 <i></i></span>
+  </header>
 
-      <main>
-        <section class="hero" id="home">
-          <div class="hero-copy reveal">
-            <p class="eyebrow">01 / PRESENTAZIONE</p>
-            <h1>FACCIO<br /><em>COSE.</em></h1>
-            <p class="intro">Sono <strong>Alberto</strong>. Studio, ascolto musica, gioco e costruisco piccoli esperimenti per il web. Questo è il posto dove raccolgo le cose che mi incuriosiscono.</p>
-            <a class="button" href="#passioni">scopri il mio mondo <span>↘</span></a>
-          </div>
-          <div class="hero-art reveal" aria-label="Composizione grafica astratta">
-            <img src="intro-art.jpg" alt="Ritratto astratto in rosso e giallo" />
-            <div class="art-stamp">PLAY<br />/ PAUSE<br />/ REPEAT</div>
-            <div class="art-caption">studio di una persona curiosa<br />milano / online</div>
-          </div>
-        </section>
+  <main>
+    <section class="cover" id="about">
+      <div class="cover-left">
+        <div class="overline"><span>PERSONAL ARCHIVE</span><span>01 / 04</span></div>
+        <h1>Ciao,<br /><strong>sono<br />Alberto.</strong></h1>
+        <p class="lead">Una pagina per le cose che studio, ascolto, gioco e provo a costruire.</p>
+        <a class="round-link" href="#interests">scorri<br />giù <b>↓</b></a>
+      </div>
+      <div class="cover-right">
+        <div class="orb orb-one"></div><div class="orb orb-two"></div><div class="orb orb-three"></div>
+        <div class="cover-label">A / V<br /><span>curious by default</span></div>
+        <div class="cover-meta"><span>EST. 2000s</span><span>ONLINE / OFFLINE</span></div>
+      </div>
+    </section>
 
-        <div class="ticker" aria-hidden="true"><span>IDEA</span><b>✳</b><span>MUSICA</span><b>✳</b><span>CODICE</span><b>✳</b><span>GIOCHI</span><b>✳</b><span>FOTO</span><b>✳</b></div>
+    <div class="marquee" aria-hidden="true"><div>IDEAS IN PROGRESS&nbsp; ✦ &nbsp;MUSIC ON REPEAT&nbsp; ✦ &nbsp;GAMES AFTER MIDNIGHT&nbsp; ✦ &nbsp;IDEAS IN PROGRESS&nbsp; ✦ &nbsp;</div></div>
 
-        <section class="section" id="passioni">
-          <div class="section-head reveal"><p class="eyebrow">02 / PASSIONI</p><h2>LE COSE<br /><em>CHE MI PIACCIONO</em></h2><p class="section-note">un mix tra testa,<br />mani e cuffie</p></div>
-          <div class="passion-grid">
-            <article class="passion-card card-red reveal"><span class="card-num">01</span><div><h3>HOBBY</h3><p>Fotografia, design e piccoli progetti: mi piace osservare bene e trasformare un’idea in qualcosa di concreto.</p><a href="hobby.html">vai agli hobby ↗</a></div></article>
-            <article class="passion-card card-yellow reveal"><span class="card-num">02</span><div><h3>MUSICA</h3><p>Una playlist per ogni momento: alt, indie, elettronica, jazz e colonne sonore per cambiare prospettiva.</p><a href="music.html">cosa ascolto ↗</a></div></article>
-            <article class="passion-card card-paper reveal"><span class="card-num">03</span><div><h3>GAMES</h3><p>Mondi da esplorare, storie da seguire e idee indie che riescono a sorprendermi.</p><a href="games.html">i miei games ↗</a></div></article>
-          </div>
-        </section>
+    <section class="intro-block"><p class="section-index">00 / INTRO</p><div><p class="statement">Mi piace imparare facendo. Parto da una domanda, raccolgo riferimenti, poi provo a trasformarli in qualcosa che si può vedere, ascoltare o usare.</p><p class="small-copy">Questo sito è il mio taccuino digitale: non è tutto definito, ed è proprio il bello.</p></div></section>
 
-        <section class="section study-section" id="studio">
-          <div class="section-head reveal"><p class="eyebrow">03 / ADESSO</p><h2>COSA<br /><em>STUDIO</em></h2><p class="section-note">imparare facendo<br />è il mio metodo</p></div>
-          <div class="study-layout">
-            <div class="study-intro reveal"><p class="big-quote">“Le idee diventano migliori quando iniziano a funzionare.”</p><p>Studio comunicazione digitale e tecnologia. Mi interessa il punto in cui creatività e codice si incontrano: interfacce semplici, progetti utili e cose che abbiano una voce.</p></div>
-            <div class="now-list reveal"><div><span>01</span><b>imparo codice</b><small>HTML / CSS / JS</small></div><div><span>02</span><b>provo idee per il web</b><small>design / prototipi</small></div><div><span>03</span><b>raccolgo ispirazioni</b><small>musica / immagini / giochi</small></div></div>
-          </div>
-        </section>
+    <section class="interests" id="interests">
+      <div class="section-title"><p class="section-index">01 / INTERESSI</p><h2>Le mie<br /><i>coordinate.</i></h2><p>tre punti di partenza<br />per conoscermi meglio</p></div>
+      <div class="interest-grid">
+        <a class="interest interest-orange" href="hobby.html"><span>01</span><div><h3>Hobby</h3><p>Fotografia, design, codice e tutto quello che mi fa perdere la cognizione del tempo.</p></div><b>↗</b></a>
+        <a class="interest interest-blue" href="music.html"><span>02</span><div><h3>Musica</h3><p>Playlist per concentrarmi, camminare, pensare e cambiare umore.</p></div><b>↗</b></a>
+        <a class="interest interest-pink" href="games.html"><span>03</span><div><h3>Games</h3><p>Mondi esplorabili, storie strane e idee indie che restano addosso.</p></div><b>↗</b></a>
+      </div>
+    </section>
 
-        <section class="contact-section reveal" id="contatti">
-          <div><p class="eyebrow">04 / CONTATTI</p><h2>PARLIAMO<br /><em>DI QUALCOSA?</em></h2><p>Se vuoi scrivermi, mandarmi una playlist o giocare insieme, mi trovi qui.</p></div>
-          <div class="contact-list">
-            <!-- Sostituisci gli URL segnaposto con i tuoi profili personali. -->
-            <a href="mailto:ciao@example.com"><span>mail</span><b>ciao@example.com</b><i>↗</i></a>
-            <a href="https://discord.com" target="_blank" rel="noreferrer"><span>discord</span><b>@Pvunto</b><i>↗</i></a>
-            <a href="https://open.spotify.com/" target="_blank" rel="noreferrer"><span>spotify</span><b>le mie playlist</b><i>↗</i></a>
-          </div>
-        </section>
-      </main>
+    <section class="study" id="study"><div class="section-title"><p class="section-index">02 / STUDIO</p><h2>In questo<br /><i>momento.</i></h2></div><div class="study-content"><div class="study-card"><p class="label">CURRENTLY LEARNING</p><h3>Comunicazione<br /><em>digitale + tecnologia</em></h3><p>Mi interessa capire come le idee si trasformano in esperienze semplici, utili e con una personalità.</p></div><ol class="steps"><li><span>01</span><b>imparo codice</b><small>HTML / CSS / JS</small></li><li><span>02</span><b>faccio esperimenti</b><small>web / design</small></li><li><span>03</span><b>raccolgo riferimenti</b><small>foto / musica / games</small></li></ol></div></section>
 
-      <footer><p>un posto per le cose che mi fanno dire<br /><strong>“ok, questa è interessante.”</strong></p><div class="footer-mark">A<span>/</span>V</div><p>© 2026 Alberto<br />fatto con curiosità</p></footer>
-    </div>
-    <script src="script.js?v=5" defer></script>
-  </body>
+    <section class="contact" id="contact"><div class="contact-heading"><p class="section-index">03 / CONTATTI</p><h2>Scrivimi<br /><i>quando vuoi.</i></h2><p>Per una chiacchierata, una playlist condivisa o un progetto da inventare.</p></div><div class="contact-links"><!-- Sostituisci i segnaposto con i tuoi link reali. --><a href="mailto:ciao@example.com"><span>mail</span><strong>ciao@example.com</strong><b>↗</b></a><a href="https://discord.com" target="_blank" rel="noreferrer"><span>discord</span><strong>@Pvunto</strong><b>↗</b></a><a href="https://open.spotify.com/" target="_blank" rel="noreferrer"><span>spotify</span><strong>playlist pubbliche</strong><b>↗</b></a></div></section>
+  </main>
+
+  <footer><span>ALBERTO / FIELD NOTES</span><span>made with curiosity</span><span>© 2026</span></footer>
+  <script src="script.js?v=6" defer></script>
+</body>
 </html>

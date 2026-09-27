@@ -1,15 +1,20 @@
-# Alberto — sito personale
+# Alberto / Field notes
 
-Portfolio personale statico realizzato con **HTML, CSS e JavaScript**, pensato per GitHub Pages.
+Sito personale statico rifatto da zero con **HTML, CSS e JavaScript**.
 
-## Cosa contiene
+## Direzione visiva
 
-- presentazione personale in homepage;
-- passioni e hobby: fotografia, design, codice, musica e videogiochi;
-- sezione dedicata a cosa studio e ai progetti in corso;
-- contatti rapidi via mail, Discord e Spotify;
-- pagine di dettaglio `hobby.html`, `music.html` e `games.html`;
-- animazioni leggere, scroll reveal, navigazione ancorata e layout responsive.
+L'identità è una reinterpretazione originale dell'estetica retro-futurista da game show: colori pop, tipografia da poster, griglie tecniche, texture CRT, badge `ON AIR` e dettagli da trasmissione televisiva. L'energia richiama il tono competitivo e spettacolare dei videogiochi moderni senza usare marchi, loghi o asset di terze parti.
+
+## Contenuti
+
+- homepage con presentazione personale;
+- passioni e hobby;
+- pagina musica;
+- pagina games;
+- sezione su cosa studio;
+- contatti via mail, Discord e Spotify;
+- layout responsive e animazioni scroll reveal.
 
 ## Struttura
 
@@ -19,27 +24,17 @@ Portfolio personale statico realizzato con **HTML, CSS e JavaScript**, pensato p
 ├── hobby.html       # Hobby personali
 ├── music.html       # Preferenze musicali
 ├── games.html       # Preferenze videoludiche
-├── style.css        # Stili globali e responsive
-├── script.js        # Animazioni e navigazione
-├── intro-art.jpg    # Immagine introduttiva
+├── style.css        # Identità visiva e responsive
+├── script.js        # Scroll reveal e interazioni
 └── .nojekyll        # Disabilita il processing Jekyll
 ```
 
 ## Personalizzare i contatti
 
-In `index.html`, nella sezione `#contatti`, sostituisci:
+In `index.html`, nella sezione `#contact`, sostituisci i segnaposto con il tuo indirizzo mail, il link al profilo/invito Discord e il profilo o la playlist Spotify.
 
-- `ciao@example.com` con il tuo indirizzo mail;
-- `https://discord.com` con il tuo profilo o invito Discord;
-- `https://open.spotify.com/` con il tuo profilo o la tua playlist Spotify;
-- `@Pvunto` con il tuo username pubblico.
+## Pubblicazione
 
-## Pubblicazione su GitHub Pages
-
-Il sito non richiede Node.js o una fase di build. In **Settings → Pages**, seleziona **Deploy from a branch**, branch `main`, cartella `/ (root)`.
+Il sito non richiede una build. In **Settings → Pages**, seleziona **Deploy from a branch**, branch `main`, cartella `/ (root)`.
 
 URL atteso: `https://pvunto.github.io`
-
-## Backup
-
-Prima della nuova versione è stato creato localmente il branch `archive/2026-09-27-before-redesign`, che conserva lo stato precedente.
