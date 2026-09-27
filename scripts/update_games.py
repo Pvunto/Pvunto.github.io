@@ -159,7 +159,7 @@ def main() -> int:
     totals = (
         f'''    <section class="total-playtime reveal is-synced"><div><p class="eyebrow">TOTAL PLAYTIME / STEAM API</p><h2>{total_hours:,} <span>ore</span></h2><p>Tempo complessivo registrato sui giochi visibili del profilo Steam.</p></div><strong>SYNC<br />OK</strong></section>'''
         if total_hours is not None
-        else '''    <section class="total-playtime reveal"><div><p class="eyebrow">TOTAL PLAYTIME / STEAM API</p><h2>N/D <span>ore</span></h2><p>Imposta il secret STEAM_API_KEY nelle Actions della repository per calcolare il totale del profilo.</p></div><strong>SYNC<br />LOCKED</strong></section>'''
+        else '''    <section class="total-playtime reveal"><div><p class="eyebrow">TOTAL PLAYTIME / STEAM API</p><h2>N/D <span>ore</span></h2><p>Per calcolare il totale del profilo, aggiungi il secret STEAM_API_KEY nelle impostazioni Actions della repository.</p></div><strong>SYNC<br />LOCKED</strong></section>'''
     )
     rotation = '''    <section class="rows game-rotation"><div class="rotation-head"><p class="eyebrow">03 / ATTIVITÀ RECENTE</p><span>aggiornato automaticamente da Steam</span></div>\n''' + "\n".join(card(game, i) for i, game in enumerate(games, 1)) + "\n    </section>"
     genre_set = []

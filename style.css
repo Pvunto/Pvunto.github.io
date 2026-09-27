@@ -39,3 +39,7 @@
 .travel-photo img,.lab-photo img{object-fit:contain;background:#101010}.game-banner img{object-fit:contain;background:var(--pink)}
 @media(max-width:760px){.subhero h1{font-size:clamp(56px,17vw,86px);letter-spacing:-.02em;word-break:normal}.subhero{overflow:hidden}.game-banner img{min-height:260px}.travel-photo img,.lab-photo img{min-height:300px}}
 .profile-photo{object-fit:contain;background:#151515}
+
+/* Compact travel gallery */
+.travel-photo{max-width:960px;min-height:260px;margin-left:auto;margin-right:auto}.travel-photo img{height:260px;min-height:260px}.travel-photo figcaption{padding:18px}.travel-photo figcaption b{font-size:clamp(34px,4vw,58px)}
+@media(max-width:760px){.travel-photo{min-height:220px}.travel-photo img{height:220px;min-height:220px}.travel-photo figcaption{min-height:135px}}
