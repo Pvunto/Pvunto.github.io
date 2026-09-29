@@ -12,3 +12,7 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.marquee div{animation:none}.reveal{opacity:1;transform:none}.interest,.feed-card,.row,.contact-links a,.round-link{transition:none}}
 
 @media(max-width:760px){.subhero h1{font-size:clamp(54px,15.5vw,76px)}}
+
+/* Original pop palette restored while keeping the editorial layout */
+:root{--ink:#171717;--paper:#f5eedc;--paper-2:#e8e1d1;--muted:#aaa79a;--line:#353531;--accent:#ffd338;--accent-dark:#ff6038}
+.profile-photo,.travel-photo img,.game-banner img{filter:none;opacity:1}.interest-orange{background:#ff6038}.interest-blue{background:#2d66f5}.interest-pink{background:#ef4c9a}.interest-yellow{background:#ffd338}.interest{color:#171717}.profile-panel-blue{background:#2d66f5;color:#f5eedc}.profile-panel-paper{background:#f5eedc;color:#171717}.feed-yellow{background:#ffd338}.feed-paper{background:#f5eedc}.feed-orange{background:#ff6038}.travel-photo-secondary{background:#ff6038;color:#171717}.game-banner{background:#171717}.game-banner img{background:#ef4c9a}.genre-board{background:#171717}.total-playtime{background:#ffd338}.interest:hover,.feed-card:hover{box-shadow:8px 8px 0 #2d66f5}

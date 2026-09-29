@@ -4,7 +4,7 @@ Sito personale statico pubblicato su GitHub Pages, costruito con HTML, CSS e Jav
 
 ## Direzione visiva
 
-Un archivio personale editoriale e tecnico: fondo neutro, tipografia forte, griglie asimmetriche, numerazioni, metadata e un unico accento verde acido. Il sistema mantiene il concetto di **personal field notes** evitando l’estetica SaaS e il classico portfolio da sviluppatore.
+Un archivio personale editoriale e tecnico: fondo neutro, tipografia forte, griglie asimmetriche, numerazioni, metadata e la palette pop originale con giallo, arancio, blu, rosa e menta. Il sistema mantiene il concetto di **personal field notes** evitando l’estetica SaaS e il classico portfolio da sviluppatore.
 
 ## Contenuti
 
