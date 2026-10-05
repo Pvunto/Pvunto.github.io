@@ -172,9 +172,13 @@ def main() -> int:
                 genre_set.append(genre)
     chips = "".join(f"<b>{index:02d} / {html.escape(genre.upper())}</b>" for index, genre in enumerate(genre_set[:6], 1))
     genre_board = f'''    <section class="genre-board reveal"><p class="eyebrow">GENRE SIGNAL</p><h2>Le mie<br /><span>frequenze.</span></h2><div class="genre-chips">{chips}</div></section>'''
+    recent_hours = sum(float(item["hours"]) for item in games if item["hours"] != "—")
+    top_game = max(games, key=lambda item: float(item["hours"]) if item["hours"] != "—" else 0)
+    insights = f'''    <section class="steam-insights reveal"><div class="section-title"><p class="section-index">04 / ANALISI PROFILO</p><h2>Steam<br /><i>insights.</i></h2><p>Metriche derivate<br />dal profilo pubblico.</p></div><div class="insight-grid"><article><span>GIOCHI RECENTI</span><strong>{len(games)}</strong><b>ultimi titoli rilevati</b></article><article><span>ORE RECENTI</span><strong>{recent_hours:g}h</strong><b>somma delle sessioni recenti</b></article><article><span>GENERI</span><strong>{len(genre_set)}</strong><b>categorie individuate</b></article><article><span>TITOLO PIÙ GIOCATO</span><strong>{html.escape(top_game["title"].upper())}</strong><b>{html.escape(top_game["hours"])} h su Steam</b></article></div></section>'''
     source = PAGE.read_text()
     source = replace_block(source, "STATS", stats)
     source = replace_block(source, "TOTALS", totals)
+    source = replace_block(source, "INSIGHTS", insights)
     source = replace_block(source, "ROTATION", rotation)
     source = replace_block(source, "GENRES", genre_board)
     PAGE.write_text(source)
