@@ -4,19 +4,19 @@ Sito personale statico pubblicato su GitHub Pages, costruito con HTML, CSS e Jav
 
 ## Direzione visiva
 
-Un archivio personale editoriale e tecnico: fondo neutro, tipografia forte, griglie asimmetriche, numerazioni, metadata e la palette pop originale con giallo, arancio, blu, rosa e menta. Il sistema mantiene il concetto di **personal field notes** evitando l’estetica SaaS e il classico portfolio da sviluppatore.
+Un archivio personale editoriale e tecnico ispirato ai pannelli broadcast di **THE FINALS**: fondo nero, griglie HUD, tipografia forte, bordi tecnici e accenti signal red, yellow e cyan.
 
 ## Contenuti
 
 - profilo e statement personale di Punto;
 - interessi: musica, videogiochi, viaggi e radioamatorialità;
 - formazione all’ITIS Max Planck di Lancenigo di Villorba, specializzazione telecomunicazioni;
+- pagina Radioamatorialità con pannello di controllo, spettro e registro tecnico;
 - hobby: modellismo, Warhammer 40,000, giochi da tavolo, stampa 3D, collezionismo e fumetti;
-- attività recenti organizzate come archivio personale;
 - pagina musicale con profilo Spotify;
-- pagina videogiochi con preferiti, rotazione, trailer di THE FINALS e sincronizzazione Steam;
+- pagina videogiochi con preferiti, filtri, rotazione, trailer di THE FINALS e sincronizzazione Steam;
 - contatti via email, Discord e Spotify;
-- layout responsive, micro-interazioni hover e scroll reveal accessibile.
+- menu mobile accessibile, layout responsive, micro-interazioni hover e scroll reveal.
 
 ## Struttura
 
@@ -25,9 +25,10 @@ Un archivio personale editoriale e tecnico: fondo neutro, tipografia forte, grig
 ├── index.html       # Profilo, interessi, formazione e contatti
 ├── hobby.html       # Hobby e attività personali
 ├── music.html       # Ascolti e profilo Spotify
-├── games.html       # Videogiochi e sincronizzazione Steam
+├── games.html       # Videogiochi, filtri e sincronizzazione Steam
+├── radio.html       # Radioamatorialità e pannello di controllo
 ├── style.css        # Sistema visivo responsive
-├── script.js        # Reveal, navigazione e micro-interazioni
+├── script.js        # Menu mobile, filtri, reveal e micro-interazioni
 └── .nojekyll        # Disabilita il processing Jekyll
 ```
 
@@ -39,13 +40,20 @@ URL: <https://pvunto.github.io>
 
 ## Aggiornamento automatico Steam
 
-Il workflow `.github/workflows/update-steam-games.yml` controlla ogni ora il profilo pubblico `76561199097297410` e aggiorna `games.html` con i giochi recenti e i generi individuati.
+Il workflow `.github/workflows/update-steam-games.yml` controlla una volta al giorno il profilo pubblico `76561199097297410` e aggiorna `games.html` con i giochi recenti e i generi individuati.
 
 - non richiede password o Steam Guard;
 - usa i dati pubblici del profilo e il catalogo pubblico Steam;
-- se Steam risponde con un limite temporaneo, mantiene la pagina precedente e riprova;
-- può essere avviato manualmente da **Actions → Update Steam games → Run workflow**.
+- esclude titoli tecnici come `Spacewar` dalla lista visibile;
+- mostra la data e l’ora dell’ultimo controllo;
+- se Steam risponde con un limite temporaneo o non è disponibile, mantiene la pagina precedente e riprova;
+- può essere avviato manualmente da **Actions → Update Steam games → Run workflow**;
+- il profilo può essere cambiato tramite la variabile `STEAM_PROFILE_ID` nel workflow, se necessario.
 
 ### Playtime totale
 
 Per calcolare il totale delle ore, aggiungere il secret `STEAM_API_KEY` in **Settings → Secrets and variables → Actions → New repository secret**. Senza il secret, la pagina mostra `N/D ore` senza inventare dati.
+
+### Contatti
+
+Il link Spotify è già attivo. L’indirizzo `ciao@example.com` e il collegamento Discord presenti nella homepage sono placeholder da sostituire con i contatti personali definitivi.

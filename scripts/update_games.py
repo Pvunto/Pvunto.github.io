@@ -12,12 +12,14 @@ import os
 import re
 import sys
 import time
+from datetime import datetime, timezone
 import urllib.parse
 import urllib.request
 from urllib.error import HTTPError, URLError
 from pathlib import Path
 
-PROFILE_URL = "https://steamcommunity.com/profiles/76561199097297410/"
+PROFILE_ID = os.environ.get("STEAM_PROFILE_ID", "76561199097297410")
+PROFILE_URL = f"https://steamcommunity.com/profiles/{PROFILE_ID}/"
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "games.html"
 
@@ -72,7 +74,7 @@ def extract_games(profile: str) -> list[dict[str, str]]:
             "hours": "—",
             "played": "preferito",
         })
-    return games[:6]
+    return [game for game in games if game["appid"] not in {"480"}][:6]
 
 
 def genres_for(appid: str) -> list[str]:
@@ -104,7 +106,7 @@ def total_playtime_hours() -> int | None:
     try:
         raw = get(
             "https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?"
-            f"key={api_key}&steamid=76561199097297410&format=json"
+            f"key={api_key}&steamid={PROFILE_ID}&format=json"
         )
         payload = json.loads(raw)
         minutes = sum(item.get("playtime_forever", 0) for item in payload.get("response", {}).get("games", []))
@@ -154,7 +156,8 @@ def main() -> int:
     total = profile_count(profile)
     max_hours = max((float(item["hours"]) for item in games if item["hours"] != "—"), default=0)
     status = "ONLINE" if "Currently Online" in profile else "OFFLINE"
-    stats = f'''    <section class="steam-stats reveal"><div><span>{html.escape(total)}</span><b>giochi<br />nel profilo</b></div><div><span>{max_hours:g}h</span><b>record personale<br />recente</b></div><div><span>{status}</span><b>ultimo check<br />profilo pubblico</b></div></section>'''
+    updated = datetime.now(timezone.utc).strftime("%d %b %Y · %H:%M UTC")
+    stats = f'''    <section class="steam-stats reveal"><div><span>{html.escape(total)}</span><b>giochi<br />nel profilo</b></div><div><span>{max_hours:g}h</span><b>record personale<br />recente</b></div><div><span>{status}</span><b>ultimo check<br />{updated}</b></div></section>'''
     total_hours = total_playtime_hours()
     totals = (
         f'''    <section class="total-playtime reveal is-synced"><div><p class="eyebrow">TOTAL PLAYTIME / STEAM API</p><h2>{total_hours:,} <span>ore</span></h2><p>Tempo complessivo registrato sui giochi visibili del profilo Steam.</p></div><strong>SYNC<br />OK</strong></section>'''

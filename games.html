@@ -6,22 +6,23 @@
   <title>Videogiochi — Punto</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css?v=20"/>
+  <link rel="stylesheet" href="style.css?v=21"/>
 </head>
 <body><div class="noise" aria-hidden="true"></div>
-<header class="site-header"><a class="logo" href="index.html"><span>P.</span><small>FIELD NOTES<br/>2026—∞</small></a><nav aria-label="Navigazione"><a href="index.html">profilo</a><a href="hobby.html">attività</a><a href="music.html">ascolti</a><a class="active" href="games.html">videogiochi</a></nav><span class="issue">personal file <i></i></span></header>
+<header class="site-header"><a class="logo" href="index.html"><span>P.</span><small>FIELD NOTES<br/>2026—∞</small></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span><b>MENU</b></button><nav id="primary-nav" aria-label="Navigazione"><a href="index.html">profilo</a><a href="hobby.html">attività</a><a href="music.html">ascolti</a><a class="active" href="games.html">videogiochi</a><a href="radio.html">radio</a></nav><span class="issue">personal file <i></i></span></header>
 <main>
   <section class="subhero reveal"><p class="eyebrow">03 / VIDEOGIOCHI</p><h1>Videogiochi<span>.</span></h1><p>Storie, esplorazione, cooperazione e competizione: una selezione dei titoli che hanno lasciato il segno e di quelli in rotazione.</p><a class="back" href="https://steamcommunity.com/profiles/76561199097297410/" target="_blank" rel="noreferrer">apri il profilo Steam ↗</a></section>
   <figure class="game-banner reveal"><img src="TheFinalsBanner.png" alt="Banner di THE FINALS"/><figcaption><span>ATTUALE PREFERITO</span><b>THE FINALS</b><small>competizione / distruzione / squadre</small></figcaption></figure>
   <section class="game-trailer reveal"><div class="trailer-heading"><p class="eyebrow">VIDEO / TRAILER</p><span>THE FINALS — PLAYER REEL</span></div><video controls autoplay muted loop playsinline preload="metadata" poster="TheFinalsBanner.png"><source src="ThefinalsTrailer.mp4" type="video/mp4"/>Il tuo browser non supporta la riproduzione video.</video></section>
 
   <section class="game-preferences favorite-section"><div class="section-title"><p class="section-index">01 / PREFERENZE</p><h2>Titoli<br/><i>preferiti.</i></h2><p>Le copertine dei mondi<br/>a cui torno più spesso.</p></div>
+    <div class="game-filters" role="group" aria-label="Filtra i titoli preferiti"><button class="filter-button is-active" type="button" data-filter="all">tutti</button><button class="filter-button" type="button" data-filter="favorite">preferiti</button><button class="filter-button" type="button" data-filter="featured">preferito attuale</button></div>
     <div class="favorite-grid">
-      <a class="favorite-game favorite-game-wide" style="--cover:url('game-covers/night-in-the-woods.jpg')" href="https://store.steampowered.com/app/481510/Night_in_the_Woods/" target="_blank" rel="noreferrer"><span>01 / INDIE</span><div><h3>Night in the Woods</h3><p>Atmosfera, personaggi e una storia indie da ricordare.</p></div><b>↗</b></a>
-      <a class="favorite-game" style="--cover:url('game-covers/outer-wilds.jpg')" href="https://store.steampowered.com/app/753640/Outer_Wilds/" target="_blank" rel="noreferrer"><span>02 / ESPLORAZIONE</span><div><h3>Outer Wilds</h3><p>Misteri e curiosità senza una strada già scritta.</p></div><b>↗</b></a>
-      <a class="favorite-game favorite-game-featured" style="--cover:url('game-covers/the-finals.jpg')" href="https://store.steampowered.com/app/2073850/THE_FINALS/" target="_blank" rel="noreferrer"><span>03 / IN ROTAZIONE</span><div><h3>THE FINALS</h3><p>Competizione, squadre e arene che cambiano continuamente.</p><mark>PREFERITO ATTUALE</mark></div><b>↗</b></a>
-      <a class="favorite-game" style="--cover:url('game-covers/lethal-company.jpg')" href="https://store.steampowered.com/app/1966720/Lethal_Company/" target="_blank" rel="noreferrer"><span>04 / CO-OP</span><div><h3>Lethal Company</h3><p>Cooperazione, tensione e situazioni imprevedibili.</p></div><b>↗</b></a>
-      <a class="favorite-game" style="--cover:url('game-covers/voices-of-the-void.jpg')" href="https://mrdrnose.itch.io/votv" target="_blank" rel="noreferrer"><span>05 / SEGNALI</span><div><h3>Voices of the Void</h3><p>Atmosfera, segnali e inquietudine nello spazio.</p></div><b>↗</b></a>
+      <a class="favorite-game favorite-game-wide" data-game-type="favorite" style="--cover:url('game-covers/night-in-the-woods.jpg')" href="https://store.steampowered.com/app/481510/Night_in_the_Woods/" target="_blank" rel="noreferrer"><span>01 / INDIE</span><div><h3>Night in the Woods</h3><p>Atmosfera, personaggi e una storia indie da ricordare.</p></div><b>↗</b></a>
+      <a class="favorite-game" data-game-type="favorite" style="--cover:url('game-covers/outer-wilds.jpg')" href="https://store.steampowered.com/app/753640/Outer_Wilds/" target="_blank" rel="noreferrer"><span>02 / ESPLORAZIONE</span><div><h3>Outer Wilds</h3><p>Misteri e curiosità senza una strada già scritta.</p></div><b>↗</b></a>
+      <a class="favorite-game favorite-game-featured" data-game-type="featured" style="--cover:url('game-covers/the-finals.jpg')" href="https://store.steampowered.com/app/2073850/THE_FINALS/" target="_blank" rel="noreferrer"><span>03 / IN ROTAZIONE</span><div><h3>THE FINALS</h3><p>Competizione, squadre e arene che cambiano continuamente.</p><mark>PREFERITO ATTUALE</mark></div><b>↗</b></a>
+      <a class="favorite-game" data-game-type="favorite" style="--cover:url('game-covers/lethal-company.jpg')" href="https://store.steampowered.com/app/1966720/Lethal_Company/" target="_blank" rel="noreferrer"><span>04 / CO-OP</span><div><h3>Lethal Company</h3><p>Cooperazione, tensione e situazioni imprevedibili.</p></div><b>↗</b></a>
+      <a class="favorite-game" data-game-type="favorite" style="--cover:url('game-covers/voices-of-the-void.jpg')" href="https://mrdrnose.itch.io/votv" target="_blank" rel="noreferrer"><span>05 / SEGNALI</span><div><h3>Voices of the Void</h3><p>Atmosfera, segnali e inquietudine nello spazio.</p></div><b>↗</b></a>
     </div>
   </section>
 
@@ -47,4 +48,4 @@
     <!-- STEAM AUTO END:GENRES -->
   <a class="back" href="index.html">← torna al profilo</a>
 </main>
-<footer><span>PERSONAL FIELD NOTES</span><span>profilo Steam pubblico</span><span>© 2026</span></footer><script src="script.js?v=10" defer></script></body></html>
+<footer><span>PERSONAL FIELD NOTES</span><span>profilo Steam pubblico</span><span>© 2026</span></footer><script src="script.js?v=11" defer></script></body></html>

@@ -30,6 +30,33 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach((section) => linkObserver.observe(section));
   }
 
+  const menuToggle = document.querySelector('.menu-toggle');
+  const primaryNav = document.querySelector('#primary-nav');
+  if (menuToggle && primaryNav) {
+    const closeMenu = () => {
+      primaryNav.classList.remove('is-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    };
+    menuToggle.addEventListener('click', () => {
+      const open = primaryNav.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+    primaryNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    window.addEventListener('resize', () => { if (window.innerWidth > 760) closeMenu(); });
+  }
+
+  const filterButtons = document.querySelectorAll('.filter-button');
+  const favoriteGames = document.querySelectorAll('.favorite-game[data-game-type]');
+  if (filterButtons.length && favoriteGames.length) {
+    filterButtons.forEach((button) => button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      filterButtons.forEach((item) => item.classList.toggle('is-active', item === button));
+      favoriteGames.forEach((game) => {
+        game.hidden = filter !== 'all' && game.dataset.gameType !== filter;
+      });
+    }));
+  }
+
   if (window.matchMedia('(hover: hover)').matches) {
     document.querySelectorAll('.tilt-card').forEach((card) => {
       card.addEventListener('pointermove', (event) => {

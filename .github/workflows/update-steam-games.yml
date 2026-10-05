@@ -2,8 +2,8 @@ name: Update Steam games
 
 on:
   schedule:
-    # Una volta ogni ora, al minuto 17.
-    - cron: '17 * * * *'
+    # Una volta al giorno, al minuto 17.
+    - cron: '17 4 * * *'
   workflow_dispatch:
 
 permissions:
