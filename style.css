@@ -984,6 +984,40 @@ html.js-ready .reveal.is-visible {
   line-height: 1.02;
   letter-spacing: -0.04em;
 }
+.travel-signal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 1px;
+  background: var(--line);
+}
+.travel-signal span {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 112px;
+  padding: 18px 20px;
+  background: var(--surface);
+  color: var(--muted);
+  font: 10px var(--mono);
+  text-transform: uppercase;
+}
+.travel-signal span:nth-child(2) {
+  background: var(--pink);
+  color: #111;
+}
+.travel-signal span:nth-child(3) {
+  background: var(--cyan);
+  color: #111;
+}
+.travel-signal strong {
+  color: var(--text);
+  font: 700 clamp(28px, 4vw, 48px) / 0.8 var(--display);
+  text-transform: uppercase;
+}
+.travel-signal span:nth-child(n + 2) strong {
+  color: inherit;
+}
 .hobby-intro .small-copy {
   color: var(--muted);
 }
@@ -1479,6 +1513,9 @@ footer {
   .hobby-signal {
     grid-template-columns: repeat(3, 1fr);
   }
+  .travel-signal {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .intro-block,
   .hobby-intro,
   .travel-statement {
@@ -1607,7 +1644,8 @@ footer {
   .insight-grid,
   .travel-log-grid,
   .radio-cards,
-  .hobby-signal {
+  .hobby-signal,
+  .travel-signal {
     grid-template-columns: 1fr;
   }
   .interest {
