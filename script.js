@@ -1,6 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.documentElement.classList.add("js-ready");
 
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll("video[autoplay]").forEach((video) => {
+      video.removeAttribute("autoplay");
+      video.pause();
+    });
+  }
+
   // Reveal sections progressively without blocking content when JS is unavailable.
   const reveals = document.querySelectorAll(".reveal");
   if (!("IntersectionObserver" in window)) {
