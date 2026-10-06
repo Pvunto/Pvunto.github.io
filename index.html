@@ -24,7 +24,7 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=26" />
+    <link rel="stylesheet" href="style.css?v=27" />
   </head>
   <body id="top">
     <a class="skip-link" href="#main-content">Salta al contenuto</a>
@@ -67,9 +67,17 @@
             Studio telecomunicazioni, seguo ciò che mi incuriosisce e trasformo
             le passioni in percorsi da esplorare.
           </p>
-          <a class="round-link" href="#interests"
-            >scopri<br />di più <b>↓</b></a
-          >
+          <div class="cover-actions">
+            <a
+              class="round-link"
+              href="#interests"
+              aria-label="Scopri gli interessi di Punto"
+              >scopri<br />di più <b aria-hidden="true">↓</b></a
+            >
+            <a class="cover-secondary" href="hobby.html"
+              >cosa sto costruendo <span aria-hidden="true">↗</span></a
+            >
+          </div>
           <div class="cover-ticker">
             <span>PROFILE STATUS</span><b>ACTIVE</b>
           </div>
@@ -131,10 +139,14 @@
         </div>
       </section>
 
-      <section class="interests" id="interests">
+      <section
+        class="interests"
+        id="interests"
+        aria-labelledby="interests-title"
+      >
         <div class="section-title">
           <p class="section-index">01 / INTERESSI</p>
-          <h2>Interessi<br /><i>principali.</i></h2>
+          <h2 id="interests-title">Interessi<br /><i>principali.</i></h2>
           <p>Le direzioni che seguo<br />nel tempo libero.</p>
         </div>
         <div class="interest-grid">
@@ -184,10 +196,14 @@
         </div>
       </section>
 
-      <section class="profile-info" id="formation">
+      <section
+        class="profile-info"
+        id="formation"
+        aria-labelledby="formation-title"
+      >
         <div class="section-title">
           <p class="section-index">02 / FORMAZIONE E ATTIVITÀ</p>
-          <h2>Percorsi<br /><i>personali.</i></h2>
+          <h2 id="formation-title">Percorsi<br /><i>personali.</i></h2>
           <p>Studio, pratica e<br />tempo libero.</p>
         </div>
         <div class="profile-info-grid">
@@ -209,10 +225,14 @@
         </div>
       </section>
 
-      <section class="broadcast-feed" id="highlights">
+      <section
+        class="broadcast-feed"
+        id="highlights"
+        aria-labelledby="highlights-title"
+      >
         <div class="section-title">
           <p class="section-index">03 / REGISTRO ATTIVITÀ</p>
-          <h2>Attività<br /><i>recenti.</i></h2>
+          <h2 id="highlights-title">Attività<br /><i>recenti.</i></h2>
           <p>Un archivio in<br />continua evoluzione.</p>
         </div>
         <div class="feed-grid">
@@ -250,10 +270,10 @@
         </div>
       </section>
 
-      <section class="contact" id="contact">
+      <section class="contact" id="contact" aria-labelledby="contact-title">
         <div class="contact-heading">
           <p class="section-index">04 / CONTATTI</p>
-          <h2>Canali<br /><i>di contatto.</i></h2>
+          <h2 id="contact-title">Canali<br /><i>di contatto.</i></h2>
           <p>
             Per una conversazione, una playlist condivisa o un progetto da
             discutere.

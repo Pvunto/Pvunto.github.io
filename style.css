@@ -352,6 +352,47 @@ html.js-ready .reveal.is-visible {
   font-size: 18px;
   line-height: 1.35;
 }
+.cover-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 30px;
+}
+.round-link {
+  display: grid;
+  place-items: center;
+  width: 92px;
+  height: 92px;
+  border: 1px solid var(--red);
+  border-radius: 50%;
+  color: var(--text);
+  font: 10px/1.15 var(--mono);
+  text-align: center;
+  text-transform: uppercase;
+  transition:
+    background 0.18s var(--ease),
+    color 0.18s var(--ease),
+    transform 0.18s var(--ease);
+}
+.round-link:hover {
+  background: var(--red);
+  color: #111;
+  transform: rotate(-7deg);
+}
+.cover-secondary {
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--muted);
+  color: var(--muted);
+  font: 10px var(--mono);
+  text-transform: uppercase;
+  transition:
+    color 0.18s var(--ease),
+    border-color 0.18s var(--ease);
+}
+.cover-secondary:hover {
+  border-color: var(--red);
+  color: var(--text);
+}
 .cover-ticker {
   position: absolute;
   right: 0;
@@ -1380,6 +1421,10 @@ footer {
     margin-top: 72px;
     font-size: clamp(86px, 25vw, 125px);
   }
+  .cover-actions {
+    align-items: flex-start;
+    gap: 18px;
+  }
   .cover-right {
     min-height: 380px;
   }
@@ -1512,6 +1557,9 @@ footer {
 @media (max-width: 520px) {
   .logo small {
     display: none;
+  }
+  .cover-actions {
+    flex-wrap: wrap;
   }
   .cover .overline {
     font-size: 8px;
