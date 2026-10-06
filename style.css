@@ -987,6 +987,40 @@ html.js-ready .reveal.is-visible {
 .hobby-intro .small-copy {
   color: var(--muted);
 }
+.hobby-signal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 1px;
+  background: var(--line);
+}
+.hobby-signal span {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 112px;
+  padding: 18px 20px;
+  background: var(--surface);
+  color: var(--muted);
+  font: 10px var(--mono);
+  text-transform: uppercase;
+}
+.hobby-signal span:nth-child(2) {
+  background: var(--yellow);
+  color: #111;
+}
+.hobby-signal span:nth-child(3) {
+  background: var(--cyan);
+  color: #111;
+}
+.hobby-signal strong {
+  color: var(--text);
+  font: 700 clamp(28px, 4vw, 48px) / 0.8 var(--display);
+  text-transform: uppercase;
+}
+.hobby-signal span:nth-child(n + 2) strong {
+  color: inherit;
+}
 .hobby-register,
 .travel-archive,
 .travel-log,
@@ -1442,6 +1476,9 @@ footer {
   .radio-cards {
     grid-template-columns: 1fr 1fr;
   }
+  .hobby-signal {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .intro-block,
   .hobby-intro,
   .travel-statement {
@@ -1569,7 +1606,8 @@ footer {
   .feed-grid,
   .insight-grid,
   .travel-log-grid,
-  .radio-cards {
+  .radio-cards,
+  .hobby-signal {
     grid-template-columns: 1fr;
   }
   .interest {
