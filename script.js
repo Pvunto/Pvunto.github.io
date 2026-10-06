@@ -30,9 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const setMenuState = (open) => {
+      const isMobile = window.innerWidth <= 820;
       primaryNav.classList.toggle('is-open', open);
       menuToggle.setAttribute('aria-expanded', String(open));
-      primaryNav.setAttribute('aria-hidden', String(!open));
+      primaryNav.setAttribute('aria-hidden', String(isMobile && !open));
     };
     setMenuState(false);
     menuToggle.addEventListener('click', () => setMenuState(!primaryNav.classList.contains('is-open')));
@@ -69,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   }
 
-  if (window.matchMedia('(hover: hover)').matches) {
+  if (window.matchMedia('(hover: hover) and (prefers-reduced-motion: no-preference)').matches) {
     document.querySelectorAll('.tilt-card').forEach((card) => {
       card.addEventListener('pointermove', (event) => {
         const box = card.getBoundingClientRect();

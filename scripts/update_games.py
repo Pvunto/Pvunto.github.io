@@ -157,12 +157,12 @@ def main() -> int:
     max_hours = max((float(item["hours"]) for item in games if item["hours"] != "—"), default=0)
     status = "ONLINE" if "Currently Online" in profile else "OFFLINE"
     updated = datetime.now(timezone.utc).strftime("%d %b %Y · %H:%M UTC")
-    stats = f'''    <section class="steam-stats reveal"><div><span>{html.escape(total)}</span><b>giochi<br />nel profilo</b></div><div><span>{max_hours:g}h</span><b>record personale<br />recente</b></div><div><span>{status}</span><b>ultimo check<br />{updated}</b></div></section>'''
+    stats = f'''    <section class="steam-stats reveal"><div><strong>{html.escape(total)}</strong><b>giochi<br />nel profilo</b></div><div><strong>{max_hours:g}h</strong><b>record personale<br />recente</b></div><div><strong>{status}</strong><b>ultimo check<br />{updated}</b></div></section>'''
     total_hours = total_playtime_hours()
     totals = (
-        f'''    <section class="total-playtime reveal is-synced"><div><p class="eyebrow">TOTAL PLAYTIME / STEAM API</p><h2>{total_hours:,} <span>ore</span></h2><p>Tempo complessivo registrato sui giochi visibili del profilo Steam.</p></div><strong>SYNC<br />OK</strong></section>'''
+        f'''    <section class="total-playtime reveal is-synced"><div><p class="eyebrow">PERSONAL PROFILE / STEAM</p><h2>{total_hours:,} <span>ore</span></h2><p>Tempo complessivo registrato sui giochi visibili del profilo Steam.</p></div><a class="steam-profile-link" href="{PROFILE_URL}" target="_blank" rel="noopener noreferrer">apri il profilo ↗</a></section>'''
         if total_hours is not None
-        else '''    <section class="total-playtime reveal"><div><p class="eyebrow">TOTAL PLAYTIME / STEAM API</p><h2>N/D <span>ore</span></h2><p>Per calcolare il totale del profilo, aggiungi il secret STEAM_API_KEY nelle impostazioni Actions della repository.</p></div><strong>SYNC<br />LOCKED</strong></section>'''
+        else f'''    <section class="total-playtime reveal"><div><p class="eyebrow">PERSONAL PROFILE / STEAM</p><h2>Dati<br /><span>in evoluzione.</span></h2><p>Il profilo pubblico raccoglie giochi, preferiti e attività recente. Per vedere l’elenco completo, apri il profilo Steam.</p></div><a class="steam-profile-link" href="{PROFILE_URL}" target="_blank" rel="noopener noreferrer">apri il profilo ↗</a></section>'''
     )
     rotation = '''    <section class="rows game-rotation"><div class="rotation-head"><p class="eyebrow">03 / ATTIVITÀ RECENTE</p><span>aggiornato automaticamente da Steam</span></div>\n''' + "\n".join(card(game, i) for i, game in enumerate(games, 1)) + "\n    </section>"
     genre_set = []

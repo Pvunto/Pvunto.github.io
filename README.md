@@ -52,8 +52,8 @@ Il workflow `.github/workflows/update-steam-games.yml` controlla una volta al gi
 
 ### Playtime totale
 
-Per calcolare il totale delle ore, aggiungere il secret `STEAM_API_KEY` in **Settings → Secrets and variables → Actions → New repository secret**. Senza il secret, la pagina mostra `N/D ore` senza inventare dati.
+Se è disponibile il secret `STEAM_API_KEY` in **Settings → Secrets and variables → Actions → New repository secret**, il workflow mostra anche il totale delle ore. In caso contrario la pagina presenta un collegamento diretto al profilo Steam senza mostrare dati tecnici o valori inventati.
 
 ### Contatti
 
-Il link Spotify è già attivo. L’indirizzo `ciao@example.com` e il collegamento Discord presenti nella homepage sono placeholder da sostituire con i contatti personali definitivi.
+La homepage collega ora il profilo GitHub `Pvunto` e il profilo Spotify pubblico.
