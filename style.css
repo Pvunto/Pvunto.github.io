@@ -59,8 +59,11 @@ nav a:hover::after, nav a.active::after { transform: scaleX(1); }
 .section-title { display: grid; grid-template-columns: 180px 1fr auto; gap: 28px; align-items: end; padding: 0 0 18px; border-bottom: 1px solid var(--line); }
 .section-title h2 { margin: 0; color: var(--text); font: 700 clamp(55px, 8vw, 102px)/.78 var(--display); text-transform: uppercase; }
 .section-title > p:last-child { margin: 0; color: var(--muted); font: 10px/1.5 var(--mono); text-align: right; }
-.reveal { opacity: 0; transform: translateY(14px); transition: opacity .45s var(--ease), transform .45s var(--ease); }
-.reveal.is-visible { opacity: 1; transform: none; }
+.reveal { opacity: 1; transform: none; }
+html.js-ready .reveal { opacity: 0; transform: translateY(14px); transition: opacity .45s var(--ease), transform .45s var(--ease); }
+html.js-ready .reveal.is-visible { opacity: 1; transform: none; }
+.skip-link { position: fixed; top: 10px; left: 10px; z-index: 100; padding: 10px 14px; border: 1px solid #111; background: var(--yellow); color: #111; font: 11px var(--mono); transform: translateY(-150%); transition: transform .18s var(--ease); }
+.skip-link:focus { transform: translateY(0); }
 
 /* Home */
 .cover { display: grid; grid-template-columns: 1.12fr .88fr; min-height: 600px; border-bottom: 1px solid var(--line); }

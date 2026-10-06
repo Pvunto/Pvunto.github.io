@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       primaryNav.classList.toggle('is-open', open);
       menuToggle.setAttribute('aria-expanded', String(open));
       primaryNav.setAttribute('aria-hidden', String(isMobile && !open));
+      primaryNav.inert = isMobile && !open;
     };
     setMenuState(false);
     menuToggle.addEventListener('click', () => setMenuState(!primaryNav.classList.contains('is-open')));
