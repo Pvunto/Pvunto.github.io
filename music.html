@@ -24,7 +24,7 @@
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=29" />
+    <link rel="stylesheet" href="style.css?v=30" />
   </head>
   <body id="top">
     <a class="skip-link" href="#main-content">Salta al contenuto</a>
@@ -69,7 +69,15 @@
           >apri il profilo Spotify ↗</a
         >
       </section>
-      <section class="rows">
+      <div class="music-signal" aria-label="Riepilogo degli ascolti">
+        <span><strong>03</strong> modi di ascoltare</span>
+        <span><strong>STUDIO</strong> strada e gioco</span>
+        <span><strong>APERTO</strong> scoperte in rotazione</span>
+      </div>
+      <section class="rows" aria-labelledby="listening-title">
+        <h2 id="listening-title" class="visually-hidden">
+          Categorie di ascolto
+        </h2>
         <div class="row reveal">
           <small>01</small>
           <div>
@@ -79,7 +87,7 @@
               giornata.
             </p>
           </div>
-          <b>↗</b>
+          <b aria-hidden="true">↗</b>
         </div>
         <div class="row reveal">
           <small>02</small>
@@ -90,7 +98,7 @@
               gioco.
             </p>
           </div>
-          <b>↗</b>
+          <b aria-hidden="true">↗</b>
         </div>
         <div class="row reveal">
           <small>03</small>
@@ -101,15 +109,25 @@
               rotazione.
             </p>
           </div>
-          <b>↗</b>
+          <b aria-hidden="true">↗</b>
         </div>
       </section>
-      <section class="genre-board reveal hobby-note">
+      <section
+        class="genre-board reveal hobby-note"
+        aria-labelledby="music-channel-title"
+      >
         <p class="eyebrow">CANALE MUSICALE</p>
-        <h2>Ascolta<br /><span>il segnale.</span></h2>
+        <h2 id="music-channel-title">Ascolta<br /><span>il segnale.</span></h2>
         <div class="genre-chips">
           <b>SPOTIFY</b><b>PLAYLIST</b><b>SCOPERTE</b><b>IN ROTAZIONE</b>
         </div>
+        <a
+          class="music-spotify-link"
+          href="https://open.spotify.com/user/31abl2l2355svrkgqsgj6nuon2z4"
+          target="_blank"
+          rel="noopener noreferrer"
+          >apri il profilo Spotify <span aria-hidden="true">↗</span></a
+        >
       </section>
       <a class="back" href="index.html">← torna al profilo</a>
     </main>
