@@ -1232,6 +1232,40 @@ html.js-ready .reveal.is-visible {
   border: 1px solid var(--line);
   background: var(--surface);
 }
+.radio-signal {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 1px;
+  background: var(--line);
+}
+.radio-signal span {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 112px;
+  padding: 18px 20px;
+  background: var(--surface);
+  color: var(--muted);
+  font: 10px var(--mono);
+  text-transform: uppercase;
+}
+.radio-signal span:nth-child(2) {
+  background: var(--yellow);
+  color: #111;
+}
+.radio-signal span:nth-child(3) {
+  background: var(--cyan);
+  color: #111;
+}
+.radio-signal strong {
+  color: var(--text);
+  font: 700 clamp(28px, 4vw, 48px) / 0.8 var(--display);
+  text-transform: uppercase;
+}
+.radio-signal span:nth-child(n + 2) strong {
+  color: inherit;
+}
 .console-top,
 .console-bottom {
   display: flex;
@@ -1582,6 +1616,9 @@ footer {
   .music-signal {
     grid-template-columns: repeat(3, 1fr);
   }
+  .radio-signal {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .intro-block,
   .hobby-intro,
   .travel-statement {
@@ -1712,7 +1749,8 @@ footer {
   .radio-cards,
   .hobby-signal,
   .travel-signal,
-  .music-signal {
+  .music-signal,
+  .radio-signal {
     grid-template-columns: 1fr;
   }
   .interest {

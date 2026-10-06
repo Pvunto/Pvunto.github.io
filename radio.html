@@ -24,7 +24,7 @@
       href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=30" />
+    <link rel="stylesheet" href="style.css?v=31" />
   </head>
   <body id="top">
     <a class="skip-link" href="#main-content">Salta al contenuto</a>
@@ -69,7 +69,7 @@
         aria-label="Pannello di controllo radio"
       >
         <div class="console-top">
-          <span>CONTROL PANEL / RX-01</span><b><i></i> SIGNAL ONLINE</b>
+          <span>CONTROL PANEL / RX-01</span><b><i></i> SIGNAL READY</b>
         </div>
         <div class="console-main">
           <div class="frequency-display">
@@ -79,7 +79,7 @@
             </div>
           </div>
           <div class="signal-display">
-            <small>SPECTRUM / LIVE</small>
+            <small>SPECTRUM / VISUAL</small>
             <div class="spectrum">
               <span style="height: 24%"></span><span style="height: 38%"></span
               ><span style="height: 18%"></span><span style="height: 62%"></span
@@ -107,11 +107,19 @@
           <b>CH 04</b>
         </div>
       </section>
+      <div class="radio-signal" aria-label="Riepilogo dell'area radio">
+        <span><strong>RX</strong> ascolto e segnali</span>
+        <span><strong>LAB</strong> pratica e misure</span>
+        <span><strong>TX</strong> connessioni a distanza</span>
+      </div>
 
-      <section class="radio-grid-section">
+      <section
+        class="radio-grid-section"
+        aria-labelledby="radio-interests-title"
+      >
         <div class="section-title">
           <p class="section-index">01 / INTERESSI TECNICI</p>
-          <h2>Segnali<br /><i>e connessioni.</i></h2>
+          <h2 id="radio-interests-title">Segnali<br /><i>e connessioni.</i></h2>
           <p>Il lato tecnico<br />della curiosità.</p>
         </div>
         <div class="radio-cards">
@@ -145,10 +153,10 @@
         </div>
       </section>
 
-      <section class="radio-register">
+      <section class="radio-register" aria-labelledby="radio-register-title">
         <div class="section-title">
           <p class="section-index">02 / REGISTRO OPERATIVO</p>
-          <h2>Elementi<br /><i>in studio.</i></h2>
+          <h2 id="radio-register-title">Elementi<br /><i>in studio.</i></h2>
           <p>Una mappa delle<br />aree che seguo.</p>
         </div>
         <div class="radio-list">
@@ -161,7 +169,7 @@
                 trasmissione di informazioni.
               </p>
             </div>
-            <b>↗</b><em>formazione</em>
+            <b aria-hidden="true">↗</b><em>formazione</em>
           </div>
           <div class="radio-row reveal">
             <span>02</span>
@@ -172,7 +180,7 @@
                 sperimentazione personale.
               </p>
             </div>
-            <b>↗</b><em>interesse</em>
+            <b aria-hidden="true">↗</b><em>interesse</em>
           </div>
           <div class="radio-row reveal">
             <span>03</span>
@@ -183,7 +191,7 @@
                 in un dato comprensibile.
               </p>
             </div>
-            <b>↗</b><em>pratica</em>
+            <b aria-hidden="true">↗</b><em>pratica</em>
           </div>
         </div>
       </section>
