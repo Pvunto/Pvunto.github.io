@@ -272,10 +272,37 @@ h1, h2, h3, h4, p, figure { margin-top: 0; }
 @media (prefers-reduced-motion: no-preference) {
   .hero-copy > * { animation: rise-in .7s both; }.hero-copy .hero-intro { animation-delay: .08s; }.hero-copy .text-link { animation-delay: .15s; }.hero-copy .hero-tags { animation-delay: .22s; }
   .hero-visual { animation: reveal .9s .18s both; }
+  .orbit-one { animation: orbit-trace-a 52s linear infinite; }
+  .orbit-two { animation: orbit-trace-b 68s linear infinite; }
+  .status-dot, .current-label i, .console-ready i { animation: signal-glow 3.4s ease-in-out infinite; }
+  .point-a span { animation: point-ping 3.6s ease-out infinite; }
+  .point-b span { animation: point-ping 3.6s 1.2s ease-out infinite; }
+  .point-c span { animation: point-ping 3.6s 2.4s ease-out infinite; }
+  .signal-bars i { transform-origin: center bottom; animation: signal-level 1.4s ease-in-out infinite alternate; }
+  .signal-bars i:nth-child(2) { animation-delay: .12s; }
+  .signal-bars i:nth-child(3) { animation-delay: .28s; }
+  .signal-bars i:nth-child(4) { animation-delay: .44s; }
+  .signal-bars i:nth-child(5) { animation-delay: .6s; }
+  .radio-console::after { animation: scan-drift 12s linear infinite; }
   @keyframes rise-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes reveal { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: scale(1); } }
-  .reveal-ready [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s ease; }
-  .reveal-ready [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+  @keyframes orbit-trace-a { from { transform: translate(-50%,-50%) rotate(-33deg); } to { transform: translate(-50%,-50%) rotate(327deg); } }
+  @keyframes orbit-trace-b { from { transform: translate(-50%,-50%) rotate(33deg); } to { transform: translate(-50%,-50%) rotate(393deg); } }
+  @keyframes signal-glow { 0%,100% { opacity: .72; } 50% { opacity: 1; } }
+  @keyframes point-ping { 0%,100% { box-shadow: 0 0 0 0 rgba(202,255,99,0); } 35% { box-shadow: 0 0 0 6px rgba(202,255,99,.12); } }
+  @keyframes signal-level { from { transform: scaleY(.58); opacity: .62; } to { transform: scaleY(1); opacity: 1; } }
+  @keyframes scan-drift { from { background-position: 0 0; } to { background-position: 0 8px; } }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .music-card, .game-card, .travel-card, .journal-steps > div, .radio-fields article, .hobby-list article {
+      animation: enter-frame linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 34%;
+    }
+    @keyframes enter-frame { from { opacity: .35; translate: 0 18px; } to { opacity: 1; translate: 0 0; } }
+  }
 }
 
 @media (max-width: 900px) {
