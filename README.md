@@ -16,3 +16,5 @@ Sito statico in italiano per `https://pvunto.github.io/`, realizzato con HTML, C
 Il repository è configurato per GitHub Pages sul branch `main`, dalla cartella `/`. I file statici nella radice vengono pubblicati automaticamente dopo il push.
 
 Non è richiesto un processo di build. Le immagini originali del sito sono conservate in `assets/`.
+
+Le fotografie personali e le copertine selezionate sono state riutilizzate dai branch `1.0` e `sito-archivio-2026-10-12`; le copie WebP del sito sono ottimizzate e non includono i metadati EXIF delle foto.

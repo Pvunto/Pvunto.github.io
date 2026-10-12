@@ -94,6 +94,8 @@ h1, h2, h3, h4, p, figure { margin-top: 0; }
 .profile-copy p { max-width: 730px; margin: 0; color: #4f564f; font-size: 15px; line-height: 1.78; }
 .profile-copy strong { color: var(--ink); font-weight: 700; }
 .profile-signature { display: flex; justify-content: end; align-items: center; gap: 12px; color: #858a7e; font: 500 9px/1.5 var(--mono); letter-spacing: .08em; }
+.profile-signature img { width: 70px; height: 70px; object-fit: cover; border: 1px solid var(--rule); border-radius: 50%; }
+.profile-signature-caption { color: #858a7e; font: 500 8px/1.6 var(--mono); letter-spacing: .08em; }
 .signature-dot { width: 21px; height: 21px; border-radius: 50%; background: var(--orange); box-shadow: inset 0 0 0 6px var(--paper); border: 1px solid var(--orange); }
 
 .section { width: var(--page); margin: 0 auto; }
@@ -137,7 +139,10 @@ h1, h2, h3, h4, p, figure { margin-top: 0; }
 .game-card.is-hidden { display: none; }
 .game-card:hover { transform: translateY(-4px); }
 .game-art { position: relative; height: clamp(155px, 18vw, 222px); overflow: hidden; }
-.art-label { position: absolute; z-index: 4; top: 15px; left: 15px; font: 8px var(--mono); letter-spacing: .11em; }
+.game-cover-image { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .5s ease; }
+.game-card:hover .game-cover-image { transform: scale(1.04); }
+.art-finals::before, .art-finals::after { display: none; }
+.art-label { position: absolute; z-index: 4; top: auto; bottom: 13px; left: 13px; padding: 4px 6px; color: var(--white); background: rgba(17,23,19,.78); font: 8px var(--mono); letter-spacing: .11em; }
 .art-night { color: #f3eadc; background: linear-gradient(145deg, #565a73 0%, #333c55 56%, #1e2939 100%); }
 .art-night::after { content: ''; position: absolute; inset: 0; opacity: .2; background-image: radial-gradient(#fff 0.7px, transparent .7px); background-size: 23px 23px; }
 .night-moon { position: absolute; top: 25%; right: 18%; width: 53px; height: 53px; border-radius: 50%; background: #e6c998; box-shadow: 0 0 32px rgba(230,201,152,.28); }
@@ -180,8 +185,8 @@ h1, h2, h3, h4, p, figure { margin-top: 0; }
 .travel-gallery { display: grid; grid-template-columns: 1.13fr .87fr; align-items: start; gap: 18px; }
 .travel-card { min-width: 0; margin: 0; }
 .travel-walk { margin-top: 77px; }
-.travel-image { position: relative; overflow: hidden; aspect-ratio: 1.63/1; background: #29332d; }
-.travel-walk .travel-image { aspect-ratio: 1.12/1; }
+.travel-image { position: relative; overflow: hidden; aspect-ratio: .88/1; background: #29332d; }
+.travel-walk .travel-image { aspect-ratio: .88/1; }
 .travel-image::after { content: ''; position: absolute; inset: 35% 0 0; background: linear-gradient(transparent, rgba(10,14,11,.35)); pointer-events: none; }
 .travel-image img { width: 100%; height: 100%; display: block; object-fit: cover; filter: saturate(.78); transition: transform .7s cubic-bezier(.2,.7,.2,1), filter .4s; }
 .travel-card:hover img { transform: scale(1.035); filter: saturate(1); }
@@ -281,7 +286,7 @@ h1, h2, h3, h4, p, figure { margin-top: 0; }
   .hero { min-height: 580px; grid-template-columns: 1fr .85fr; gap: 3%; }
   .hero h1 { font-size: clamp(57px, 7.3vw, 78px); }
   .hero-visual { width: 100%; }
-  .profile-strip { grid-template-columns: 115px 1fr; gap: 20px; }.profile-signature { display: none; }
+  .profile-strip { grid-template-columns: 115px 1fr 138px; gap: 20px; }
   .interest-row { grid-template-columns: 105px 1fr; gap: 22px; }
   .section-heading { gap: 30px; }.section-intro { margin-right: 0; }
   .travel-heading > p { margin-right: 0; }
@@ -308,12 +313,12 @@ h1, h2, h3, h4, p, figure { margin-top: 0; }
   .hero-visual { width: min(82vw, 365px); align-self: center; }
   .visual-topline, .visual-footer { font-size: 6px; }.orbit-core { width: 77px; height: 77px; }.visual-point b { font-size: 6px; }.point-a { left: 8%; }.point-b { right: 3%; }
   .hero-bottom { left: 20px; right: 20px; bottom: 14px; font-size: 7px; }
-  .profile-strip { display: block; padding: 27px 0 32px; }.profile-label { margin-bottom: 14px; }.profile-copy p { font-size: 13px; }
+  .profile-strip { display: block; padding: 27px 0 32px; }.profile-label { margin-bottom: 14px; }.profile-copy p { font-size: 13px; }.profile-signature { justify-content: flex-start; margin-top: 16px; }
   .interests-section { padding: 76px 0 68px; }.section-heading { display: block; margin-bottom: 49px; }.section-heading h2, .travel-heading h2, .radio-heading h2, .making-title h2 { font-size: clamp(43px, 11vw, 59px); }.section-intro { max-width: 390px; margin: 18px 0 0; font-size: 13px; }
   .interest-row { display: block; padding: 27px 0 41px; }.interest-index { margin-bottom: 20px; }.interest-heading { display: block; margin-bottom: 25px; }.interest-heading h3 { font-size: 32px; }.interest-heading > p { margin: 13px 0 0; font-size: 12px; }.music-cards { grid-template-columns: 1fr; gap: 8px; }.music-card { min-height: 147px; padding: 17px; }.music-card h4 { margin-top: 27px; font-size: 16px; }.music-card p { max-width: 290px; }
-  .games-heading .inline-link { margin-top: 18px; }.game-toolbar { display: block; }.game-filters { margin-top: 9px; flex-wrap: wrap; }.filter-button { padding: 7px 8px; font-size: 10px; }.game-shelf { grid-template-columns: 1fr; gap: 8px; padding-top: 13px; }.game-card { display: grid; grid-template-columns: .9fr 1.1fr; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--rule); }.game-art { height: auto; aspect-ratio: 1.18 / 1; }.art-label { top: 8px; left: 8px; font-size: 6px; }.night-moon { width: 40px; height: 40px; }.planet-one { width: 55px; height: 55px; }.planet-two { width: 23px; height: 23px; }.finals-ring { width: 96px; height: 96px; }.ring-two { width: 134px; height: 134px; }.finals-flare { font-size: 18px; }.finals-live { right: 6px; bottom: 6px; font-size: 6px; }.game-card-copy { padding: 5px 0; }.game-meta { font-size: 6px; }.game-card-copy h4 { font-size: 15px; }.game-card-copy p { font-size: 10px; line-height: 1.55; }
+  .games-heading .inline-link { margin-top: 18px; }.game-toolbar { display: block; }.game-filters { margin-top: 9px; flex-wrap: wrap; }.filter-button { padding: 7px 8px; font-size: 10px; }.game-shelf { grid-template-columns: 1fr; gap: 8px; padding-top: 13px; }.game-card { display: grid; grid-template-columns: .9fr 1.1fr; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--rule); }.game-art { height: auto; aspect-ratio: 1.18 / 1; }.art-label { top: auto; bottom: 8px; left: 8px; font-size: 6px; }.night-moon { width: 40px; height: 40px; }.planet-one { width: 55px; height: 55px; }.planet-two { width: 23px; height: 23px; }.finals-ring { width: 96px; height: 96px; }.ring-two { width: 134px; height: 134px; }.finals-flare { font-size: 18px; }.finals-live { right: 6px; bottom: 6px; font-size: 6px; }.game-card-copy { padding: 5px 0; }.game-meta { font-size: 6px; }.game-card-copy h4 { font-size: 15px; }.game-card-copy p { font-size: 10px; line-height: 1.55; }
   .trailer-panel { grid-template-columns: 1fr; gap: 19px; margin-top: 25px; padding: 18px; }.trailer-copy h4 { margin: 10px 0 6px; font-size: 24px; }.trailer-copy p { max-width: 340px; margin-bottom: 12px; }
-  .travel-section { padding: 75px 20px 66px; }.travel-heading { display: block; margin-bottom: 31px; }.travel-heading .eyebrow { margin-bottom: 18px; }.travel-heading > p { margin-top: 17px; font-size: 13px; }.travel-gallery { grid-template-columns: 1fr; gap: 34px; }.travel-walk { margin-top: 0; }.travel-image, .travel-walk .travel-image { aspect-ratio: 1.32/1; }.travel-card figcaption { gap: 12px; }.travel-card figcaption h3 { font-size: 22px; }.travel-card figcaption p { max-width: 50%; margin-top: 12px; font-size: 10px; }.travel-journal { margin-top: 52px; }.journal-heading { gap: 8px; font-size: 6px; }.journal-steps { grid-template-columns: 1fr; gap: 20px; padding-top: 24px; }.journal-steps > div { padding-left: 29px; }.journal-steps p { max-width: 350px; }
+  .travel-section { padding: 75px 20px 66px; }.travel-heading { display: block; margin-bottom: 31px; }.travel-heading .eyebrow { margin-bottom: 18px; }.travel-heading > p { margin-top: 17px; font-size: 13px; }.travel-gallery { grid-template-columns: 1fr; gap: 34px; }.travel-walk { margin-top: 0; }.travel-image, .travel-walk .travel-image { aspect-ratio: .88/1; }.travel-card figcaption { gap: 12px; }.travel-card figcaption h3 { font-size: 22px; }.travel-card figcaption p { max-width: 50%; margin-top: 12px; font-size: 10px; }.travel-journal { margin-top: 52px; }.journal-heading { gap: 8px; font-size: 6px; }.journal-steps { grid-template-columns: 1fr; gap: 20px; padding-top: 24px; }.journal-steps > div { padding-left: 29px; }.journal-steps p { max-width: 350px; }
   .radio-section { display: block; padding: 75px 20px 62px; }.radio-heading { margin-bottom: 30px; }.radio-heading > p:last-child { margin-top: 14px; }.radio-console { padding: 16px; }.frequency-readout strong { font-size: clamp(37px, 11vw, 52px); }.console-stats strong { font-size: 10px; }.console-stats > div { padding: 10px 5px; }.console-stats > div > span { font-size: 6px; }.radio-fields { grid-template-columns: 1fr; gap: 0; margin-top: 30px; padding-top: 0; }.radio-fields article { padding: 18px 0; border-right: 0; border-bottom: 1px solid rgba(17,23,19,.13); }.radio-fields article:last-child { border-bottom: 0; }.radio-fields h3 { margin-top: 9px; }.radio-fields p { max-width: 440px; }.radio-log { grid-template-columns: 1fr; gap: 11px; margin-top: 15px; }.radio-log > .card-code { grid-column: auto; }.radio-log p { font-size: 11px; }
   .making-section { display: block; padding: 75px 0 74px; }.making-title { position: static; margin-bottom: 36px; }.making-title > p:last-child { margin-top: 15px; font-size: 12px; }.hobby-list article { grid-template-columns: 30px 1fr 26px; gap: 9px; padding: 17px 0; }.hobby-list h3 { font-size: 17px; }.hobby-list p { font-size: 11px; }.hobby-symbol { font-size: 19px; }
   .closing-note { gap: 13px; padding: 30px 20px; }.closing-mark { font-size: 56px; }.closing-note p { font-size: 20px; }.closing-coordinates { font-size: 6px; }
