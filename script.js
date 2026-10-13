@@ -25,7 +25,7 @@
   const filters = [...document.querySelectorAll('.filter-button')];
   const cards = [...document.querySelectorAll('.game-card')];
   const status = document.getElementById('game-filter-status');
-  const filterLabels = { all: 'tutti', preferito: 'i preferiti', attuale: 'il titolo in rotazione' };
+  const filterLabels = { all: 'elenco completo', preferito: 'preferiti', attuale: 'titolo attuale' };
 
   filters.forEach((button) => {
     button.addEventListener('click', () => {
@@ -46,7 +46,8 @@
 
       if (status) {
         const noun = shown === 1 ? 'videogioco' : 'videogiochi';
-        status.textContent = `Mostrati ${filterLabels[filter]}: ${shown} ${noun}.`;
+        const participle = shown === 1 ? 'visualizzato' : 'visualizzati';
+        status.textContent = `${shown} ${noun} ${participle} (${filterLabels[filter]}).`;
       }
     });
   });
@@ -68,7 +69,7 @@
     feedbackForm.addEventListener('submit', () => {
       updateIssueTitle();
       if (terminal) terminal.classList.add('is-ready');
-      if (statusMessage) statusMessage.textContent = 'La bozza si apre in una nuova scheda: rileggila e inviala su GitHub solo se vuoi.';
+      if (statusMessage) statusMessage.textContent = 'La bozza si apre in una nuova scheda. Controlla il testo e invia l’issue solo se desideri pubblicarlo.';
     });
   }
 
