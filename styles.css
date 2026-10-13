@@ -127,18 +127,27 @@ h1, h2, h3, h4, p, figure { margin-top: 0; }
 .games-row { padding-bottom: 0; }
 .games-heading { align-items: end; margin-bottom: 31px; }
 .games-heading .inline-link { margin-bottom: 4px; flex: 0 0 auto; }
-.game-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 13px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.game-filters { display: flex; align-items: center; gap: 5px; }
-.filter-button { padding: 7px 11px; border: 1px solid transparent; border-radius: 0; color: #777d74; background: transparent; cursor: pointer; font-size: 11px; transition: all .2s; }
+.game-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 10px 12px; border: 1px solid rgba(17,23,19,.13); background: #eeede4; }
+.game-filters { display: flex; align-items: center; gap: 6px; }
+.filter-button { padding: 8px 12px; border: 1px solid transparent; border-radius: 2px; color: #777d74; background: transparent; cursor: pointer; font-size: 11px; transition: color .2s, background .2s, border-color .2s; }
 .filter-button span { margin-left: 5px; color: #a1a69c; font: 9px var(--mono); }
 .filter-button:hover { color: var(--ink); }
 .filter-button.is-active { color: var(--ink); background: var(--lime); border-color: var(--lime-dark); }
 .filter-button.is-active span { color: #4d6527; }
-.game-shelf { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; padding-top: 19px; }
-.game-card { min-width: 0; transition: opacity .2s, transform .25s; }
+.game-shelf { display: grid; grid-template-columns: minmax(0,1.18fr) minmax(320px,.82fr); grid-template-rows: repeat(2,minmax(190px,1fr)); gap: 14px; padding-top: 16px; align-items: stretch; }
+.game-card { min-width: 0; overflow: hidden; border: 1px solid rgba(17,23,19,.14); background: #f7f6ef; transition: border-color .2s, box-shadow .25s, transform .25s; }
 .game-card.is-hidden { display: none; }
-.game-card:hover { transform: translateY(-4px); }
-.game-art { position: relative; height: clamp(155px, 18vw, 222px); overflow: hidden; }
+.game-card:hover { transform: translateY(-3px); border-color: rgba(17,23,19,.28); box-shadow: 0 10px 24px rgba(17,23,19,.08); }
+.game-card.current-game { display: grid; grid-column: 1; grid-row: 1 / span 2; grid-template-rows: auto 1fr; }
+.game-card[data-game="night-in-the-woods"] { grid-column: 2; grid-row: 1; }
+.game-card[data-game="outer-wilds"] { grid-column: 2; grid-row: 2; }
+.game-shelf[data-filter="attuale"] { grid-template-columns: minmax(0,1fr); grid-template-rows: auto; }
+.game-shelf[data-filter="attuale"] .current-game { grid-column: 1; grid-row: auto; }
+.game-shelf[data-filter="attuale"] .current-game .game-art { aspect-ratio: 1.7 / 1; }
+.game-card:not(.current-game) { display: grid; grid-template-columns: minmax(112px,.78fr) minmax(0,1.22fr); align-items: stretch; }
+.game-art { position: relative; height: 100%; min-height: 0; overflow: hidden; }
+.game-card.current-game .game-art { height: auto; aspect-ratio: 1.55 / 1; }
+.game-card:not(.current-game) .game-art { min-height: 190px; }
 .game-cover-image { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .5s ease; }
 .game-card:hover .game-cover-image { transform: scale(1.04); }
 .art-finals::before, .art-finals::after { display: none; }
@@ -164,14 +173,17 @@ h1, h2, h3, h4, p, figure { margin-top: 0; }
 .finals-flare { position: absolute; z-index: 3; top: 50%; left: 50%; color: var(--ink); font: 800 23px/.9 var(--display); text-align: center; letter-spacing: -.08em; transform: translate(-50%,-50%) rotate(-8deg); }
 .finals-live { position: absolute; z-index: 4; right: 13px; bottom: 13px; display: flex; align-items: center; gap: 6px; padding: 5px 7px; color: var(--white); background: var(--ink); font: 8px var(--mono); letter-spacing: .08em; }
 .finals-live i { width: 5px; height: 5px; background: var(--orange); box-shadow: none; }
-.game-card-copy { padding: 14px 3px 13px; }
-.game-meta { display: flex; justify-content: space-between; align-items: center; color: #858b81; font: 8px var(--mono); letter-spacing: .08em; }
+.game-card-copy { display: flex; flex-direction: column; justify-content: center; min-width: 0; padding: 17px 18px; }
+.game-meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 5px; color: #858b81; font: 8px var(--mono); letter-spacing: .08em; }
 .favorite-mark { color: #e68c45; font-size: 12px; }
 .current-label { display: flex; align-items: center; gap: 6px; color: #687e39; }
 .current-label i { width: 5px; height: 5px; box-shadow: none; }
-.game-card-copy h4 { margin: 9px 0 5px; font: 650 18px/1.15 var(--display); letter-spacing: -.04em; }
-.game-card-copy p { max-width: 300px; margin: 0; color: #71776e; font-size: 12px; line-height: 1.65; }
-.trailer-panel { display: grid; grid-template-columns: .68fr 1.32fr; gap: 35px; align-items: center; margin-top: 39px; padding: 25px; background: #e6e5db; }
+.game-card-copy h4 { margin: 11px 0 7px; font: 650 18px/1.15 var(--display); letter-spacing: -.04em; }
+.game-card-copy p { max-width: none; margin: 0; color: #71776e; font-size: 11px; line-height: 1.6; }
+.game-card.current-game .game-card-copy { padding: 20px 23px 22px; }
+.game-card.current-game .game-card-copy h4 { margin: 13px 0 8px; font-size: clamp(23px,2.2vw,30px); }
+.game-card.current-game .game-card-copy p { max-width: 530px; font-size: 13px; }
+.trailer-panel { display: grid; grid-template-columns: minmax(220px,.62fr) minmax(0,1.38fr); gap: 30px; align-items: center; margin-top: 26px; padding: 25px; border: 1px solid rgba(17,23,19,.12); background: #e6e5db; }
 .trailer-copy h4 { margin: 16px 0 10px; font: 650 28px/1.03 var(--display); letter-spacing: -.055em; }
 .trailer-copy p { max-width: 245px; margin: 0 0 16px; color: #6e746a; font-size: 12px; line-height: 1.65; }
 .trailer-frame { position: relative; width: 100%; aspect-ratio: 16/9; background: #171c18; }
@@ -320,6 +332,9 @@ h1, h2, h3, h4, p, figure { margin-top: 0; }
   .radio-section { grid-template-columns: .8fr 1.2fr; gap: 20px 5%; }
   .radio-log { grid-template-columns: repeat(3,1fr); }.radio-log > .card-code { grid-column: 1/-1; }
   .making-section { gap: 6%; }
+  .game-shelf { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .game-card:not(.current-game) { grid-template-columns: minmax(0,.76fr) minmax(0,1.24fr); }
+  .game-card.current-game .game-art { aspect-ratio: 1.45 / 1; }
 }
 
 @media (max-width: 650px) {
@@ -344,6 +359,19 @@ h1, h2, h3, h4, p, figure { margin-top: 0; }
   .interests-section { padding: 76px 0 68px; }.section-heading { display: block; margin-bottom: 49px; }.section-heading h2, .travel-heading h2, .radio-heading h2, .making-title h2 { font-size: clamp(43px, 11vw, 59px); }.section-intro { max-width: 390px; margin: 18px 0 0; font-size: 13px; }
   .interest-row { display: block; padding: 27px 0 41px; }.interest-index { margin-bottom: 20px; }.interest-heading { display: block; margin-bottom: 25px; }.interest-heading h3 { font-size: 32px; }.interest-heading > p { margin: 13px 0 0; font-size: 12px; }.music-cards { grid-template-columns: 1fr; gap: 8px; }.music-card { min-height: 147px; padding: 17px; }.music-card h4 { margin-top: 27px; font-size: 16px; }.music-card p { max-width: 290px; }
   .games-heading .inline-link { margin-top: 18px; }.game-toolbar { display: block; }.game-filters { margin-top: 9px; flex-wrap: wrap; }.filter-button { padding: 7px 8px; font-size: 10px; }.game-shelf { grid-template-columns: 1fr; gap: 8px; padding-top: 13px; }.game-card { display: grid; grid-template-columns: .9fr 1.1fr; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--rule); }.game-art { height: auto; aspect-ratio: 1.18 / 1; }.art-label { top: auto; bottom: 8px; left: 8px; font-size: 6px; }.night-moon { width: 40px; height: 40px; }.planet-one { width: 55px; height: 55px; }.planet-two { width: 23px; height: 23px; }.finals-ring { width: 96px; height: 96px; }.ring-two { width: 134px; height: 134px; }.finals-flare { font-size: 18px; }.finals-live { right: 6px; bottom: 6px; font-size: 6px; }.game-card-copy { padding: 5px 0; }.game-meta { font-size: 6px; }.game-card-copy h4 { font-size: 15px; }.game-card-copy p { font-size: 10px; line-height: 1.55; }
+  .game-shelf { grid-template-columns: minmax(0,1fr); grid-template-rows: auto; gap: 11px; padding-top: 12px; }
+  .game-card.current-game, .game-card[data-game="night-in-the-woods"], .game-card[data-game="outer-wilds"] { grid-column: 1; grid-row: auto; }
+  .game-card { gap: 0; padding: 0; }
+  .game-card.current-game { grid-template-columns: 1fr; grid-template-rows: auto auto; }
+  .game-card.current-game .game-art { height: auto; min-height: 0; aspect-ratio: 1.55 / 1; }
+  .game-card:not(.current-game) { grid-template-columns: minmax(105px,.78fr) minmax(0,1.22fr); min-height: 145px; }
+  .game-card:not(.current-game) .game-art { height: 100%; min-height: 145px; aspect-ratio: auto; }
+  .game-card-copy { padding: 14px; }
+  .game-card.current-game .game-card-copy { padding: 18px; }
+  .game-meta { font-size: 7px; }
+  .game-card-copy h4 { font-size: 16px; }
+  .game-card.current-game .game-card-copy h4 { font-size: 22px; }
+  .game-card-copy p { font-size: 10px; line-height: 1.55; }
   .trailer-panel { grid-template-columns: 1fr; gap: 19px; margin-top: 25px; padding: 18px; }.trailer-copy h4 { margin: 10px 0 6px; font-size: 24px; }.trailer-copy p { max-width: 340px; margin-bottom: 12px; }
   .travel-section { padding: 75px 20px 66px; }.travel-heading { display: block; margin-bottom: 31px; }.travel-heading .eyebrow { margin-bottom: 18px; }.travel-heading > p { margin-top: 17px; font-size: 13px; }.travel-gallery { grid-template-columns: 1fr; gap: 34px; }.travel-walk { margin-top: 0; }.travel-image, .travel-walk .travel-image { aspect-ratio: .88/1; }.travel-card figcaption { gap: 12px; }.travel-card figcaption h3 { font-size: 22px; }.travel-card figcaption p { max-width: 50%; margin-top: 12px; font-size: 10px; }.travel-journal { margin-top: 52px; }.journal-heading { gap: 8px; font-size: 6px; }.journal-steps { grid-template-columns: 1fr; gap: 20px; padding-top: 24px; }.journal-steps > div { padding-left: 29px; }.journal-steps p { max-width: 350px; }
   .radio-section { display: block; padding: 75px 20px 62px; }.radio-heading { margin-bottom: 30px; }.radio-heading > p:last-child { margin-top: 14px; }.radio-console { padding: 16px; }.frequency-readout strong { font-size: clamp(37px, 11vw, 52px); }.console-stats strong { font-size: 10px; }.console-stats > div { padding: 10px 5px; }.console-stats > div > span { font-size: 6px; }.radio-fields { grid-template-columns: 1fr; gap: 0; margin-top: 30px; padding-top: 0; }.radio-fields article { padding: 18px 0; border-right: 0; border-bottom: 1px solid rgba(17,23,19,.13); }.radio-fields article:last-child { border-bottom: 0; }.radio-fields h3 { margin-top: 9px; }.radio-fields p { max-width: 440px; }.radio-log { grid-template-columns: 1fr; gap: 11px; margin-top: 15px; }.radio-log > .card-code { grid-column: auto; }.radio-log p { font-size: 11px; }

@@ -14,8 +14,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css?v=20261012-mobile-contact">
-  <script src="./script.js?v=20261014-serious" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=20261014-game-layout-1">
+  <script src="./script.js?v=20261014-game-layout-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenuto">Salta al contenuto</a>
@@ -93,7 +93,11 @@
           <div class="interest-heading games-heading"><div><h3 id="games-title">I videogiochi<br>che preferisco.</h3><p>Gioco a titoli di generi diversi. In questo periodo, THE FINALS è il titolo che seguo con maggiore interesse.</p></div><a class="inline-link" href="https://steamcommunity.com/profiles/76561199097297410" target="_blank" rel="noopener noreferrer">Profilo Steam <span aria-hidden="true">↗</span></a></div>
           <div class="game-toolbar"><span class="card-code">ELENCO / 03 TITOLI</span><div class="game-filters" role="group" aria-label="Filtra i videogiochi"><button type="button" class="filter-button is-active" data-filter="all" aria-pressed="true">Tutti <span>03</span></button><button type="button" class="filter-button" data-filter="preferito" aria-pressed="false">Preferiti <span>03</span></button><button type="button" class="filter-button" data-filter="attuale" aria-pressed="false">Attuale <span>01</span></button></div></div>
           <p class="sr-only" id="game-filter-status" aria-live="polite">3 videogiochi visualizzati (elenco completo).</p>
-          <div class="game-shelf">
+          <div class="game-shelf" data-filter="all">
+            <article class="game-card current-game" data-tags="preferito attuale" data-game="the-finals">
+              <div class="game-art art-finals" aria-hidden="true"><img class="game-cover-image" src="./assets/game-the-finals.webp" srcset="./assets/game-the-finals-360.webp 360w, ./assets/game-the-finals.webp 600w" sizes="(max-width: 650px) 43vw, 28vw" width="600" height="900" alt="" loading="lazy" decoding="async" fetchpriority="low"><span class="art-label">THE FINALS / ATTUALE</span><span class="finals-live"><i></i> IN GIOCO</span></div>
+              <div class="game-card-copy"><div class="game-meta"><span>COMPETIZIONE / SQUADRE</span><span class="current-label"><i></i> ORA</span></div><h4>THE FINALS</h4><p>Sparatutto competitivo a squadre, ambientato in arene parzialmente distruttibili.</p></div>
+            </article>
             <article class="game-card" data-tags="preferito" data-game="night-in-the-woods">
               <div class="game-art art-night" aria-hidden="true"><img class="game-cover-image" src="./assets/game-night-in-the-woods.webp" srcset="./assets/game-night-in-the-woods-360.webp 360w, ./assets/game-night-in-the-woods.webp 600w" sizes="(max-width: 650px) 43vw, 28vw" width="600" height="900" alt="" loading="lazy" decoding="async" fetchpriority="low"><span class="art-label">STORIE / PERSONAGGI</span></div>
               <div class="game-card-copy"><div class="game-meta"><span>INDIE / NARRATIVO</span><span class="favorite-mark" aria-label="Preferito">★</span></div><h4>Night in the Woods</h4><p>Avventura narrativa indipendente, con attenzione ai personaggi e alla storia.</p></div>
@@ -101,10 +105,6 @@
             <article class="game-card" data-tags="preferito" data-game="outer-wilds">
               <div class="game-art art-outer" aria-hidden="true"><img class="game-cover-image" src="./assets/game-outer-wilds.webp" srcset="./assets/game-outer-wilds-360.webp 360w, ./assets/game-outer-wilds.webp 600w" sizes="(max-width: 650px) 43vw, 28vw" width="600" height="900" alt="" loading="lazy" decoding="async" fetchpriority="low"><span class="art-label">MISTERI / ESPLORAZIONE</span></div>
               <div class="game-card-copy"><div class="game-meta"><span>ESPLORAZIONE / MISTERO</span><span class="favorite-mark" aria-label="Preferito">★</span></div><h4>Outer Wilds</h4><p>Esplorazione spaziale e indagine su un mistero in un sistema solare.</p></div>
-            </article>
-            <article class="game-card current-game" data-tags="preferito attuale" data-game="the-finals">
-              <div class="game-art art-finals" aria-hidden="true"><img class="game-cover-image" src="./assets/game-the-finals.webp" srcset="./assets/game-the-finals-360.webp 360w, ./assets/game-the-finals.webp 600w" sizes="(max-width: 650px) 43vw, 28vw" width="600" height="900" alt="" loading="lazy" decoding="async" fetchpriority="low"><span class="art-label">THE FINALS / ATTUALE</span><span class="finals-live"><i></i> IN GIOCO</span></div>
-              <div class="game-card-copy"><div class="game-meta"><span>COMPETIZIONE / SQUADRE</span><span class="current-label"><i></i> ORA</span></div><h4>THE FINALS</h4><p>Sparatutto competitivo a squadre, ambientato in arene parzialmente distruttibili.</p></div>
             </article>
           </div>
           <div class="trailer-panel">

@@ -24,6 +24,7 @@
 
   const filters = [...document.querySelectorAll('.filter-button')];
   const cards = [...document.querySelectorAll('.game-card')];
+  const shelf = document.querySelector('.game-shelf');
   const status = document.getElementById('game-filter-status');
   const filterLabels = { all: 'elenco completo', preferito: 'preferiti', attuale: 'titolo attuale' };
 
@@ -31,6 +32,7 @@
     button.addEventListener('click', () => {
       const filter = button.dataset.filter;
       let shown = 0;
+      if (shelf) shelf.dataset.filter = filter;
 
       filters.forEach((item) => {
         const active = item === button;
