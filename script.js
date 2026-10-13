@@ -54,6 +54,24 @@
   const year = document.getElementById('current-year');
   if (year) year.textContent = String(new Date().getFullYear());
 
+  const feedbackForm = document.getElementById('feedback-form');
+  if (feedbackForm) {
+    const topic = document.getElementById('feedback-topic');
+    const title = document.getElementById('feedback-title');
+    const statusMessage = document.getElementById('feedback-status');
+    const terminal = feedbackForm.closest('.feedback-terminal');
+    const updateIssueTitle = () => {
+      if (topic && title) title.value = `Feedback dal sito Punto: ${topic.value}`;
+    };
+
+    if (topic) topic.addEventListener('change', updateIssueTitle);
+    feedbackForm.addEventListener('submit', () => {
+      updateIssueTitle();
+      if (terminal) terminal.classList.add('is-ready');
+      if (statusMessage) statusMessage.textContent = 'La bozza si apre in una nuova scheda: rileggila e inviala su GitHub solo se vuoi.';
+    });
+  }
+
   const sections = [...document.querySelectorAll('main section[id]')];
   const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
   if ('IntersectionObserver' in window && sections.length && navLinks.length) {
