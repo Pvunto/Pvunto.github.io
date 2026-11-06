@@ -2,42 +2,77 @@
   "profile": {
     "name": "Punto",
     "intro": "Studente di telecomunicazioni, mi interesso di musica, videogiochi, viaggi, radio e attività creative.",
-    "about": "Mi interessano i sistemi che collegano persone, idee e strumenti: dalla musica alle radio, dai videogiochi ai progetti costruiti con le mani.",
+    "about": "Studio telecomunicazioni e mi interessano la radioamatorialità, l’ascolto e la sperimentazione. Tra musica, videogiochi, viaggi e attività creative, seguo i temi che collegano persone, idee e strumenti.",
     "photo": "./assets/profilo.webp",
     "photoAlt": "Persona in un campo, fotografata di spalle."
   },
   "music": {
     "spotify": "https://open.spotify.com/user/31abl2l2355svrkgqsgj6nuon2z4",
-    "listening": [
+    "overview": "La musica accompagna lo studio, i viaggi e i momenti in cui serve cambiare prospettiva.",
+    "categories": [
       {
         "number": "01",
         "title": "Ascolti quotidiani",
-        "category": "PLAYLIST",
         "description": "Playlist personali e nuove scoperte per seguire il ritmo della giornata."
       },
       {
         "number": "02",
         "title": "Colonne sonore",
-        "category": "FILM / VIDEOGIOCHI",
         "description": "Musiche che trasformano un momento, un viaggio o una sessione di gioco."
       },
       {
         "number": "03",
         "title": "Scoperte",
-        "category": "ARTISTI / GENERI / BRANI",
         "description": "Artisti, generi e brani trovati per caso e rimasti in rotazione."
       }
     ],
-    "selections": {
-      "genres": [],
-      "artists": [],
-      "albums": [],
-      "songs": []
-    },
-    "superfan": {
-      "status": "Non risultano API o widget ufficiali pubblicamente documentati per incorporare un profilo Superfan in questo sito. Il collegamento resta esterno.",
-      "url": "https://www.superfan.social/"
-    }
+    "albums": [
+      {
+        "title": "In Utero",
+        "artist": "Nirvana",
+        "track": "Serve The Servants",
+        "playlistTitle": "Nirvana Mix",
+        "playlistUrl": "https://open.spotify.com/playlist/1SWmUTY21H73XoOhmtyUjZ",
+        "albumUrl": "https://open.spotify.com/album/7wOOA7l306K8HfBKfPoafr",
+        "cover": "./assets/album-in-utero-640.webp",
+        "mobileCover": "./assets/album-in-utero-320.webp",
+        "alt": "Copertina dell’album In Utero dei Nirvana"
+      },
+      {
+        "title": "Three Cheers for Sweet Revenge",
+        "artist": "My Chemical Romance",
+        "track": "Helena",
+        "playlistTitle": "MCR mix",
+        "playlistUrl": "https://open.spotify.com/playlist/2cxf9RRlmiNxspb4ZTrOYo",
+        "albumUrl": "https://open.spotify.com/album/3DuiGV3J09SUhvp8gqNx8h",
+        "cover": "./assets/album-three-cheers-640.webp",
+        "mobileCover": "./assets/album-three-cheers-320.webp",
+        "alt": "Copertina dell’album Three Cheers for Sweet Revenge dei My Chemical Romance"
+      },
+      {
+        "title": "Slipknot",
+        "artist": "Slipknot",
+        "track": "742617000027",
+        "playlistTitle": "Slipknot mix likes",
+        "playlistUrl": "https://open.spotify.com/playlist/0ZCvgCRc1OXepx9fWshBwZ",
+        "albumUrl": "https://open.spotify.com/album/5lOFvOWAdy9G6p44noRILU",
+        "cover": "./assets/album-slipknot-640.webp",
+        "mobileCover": "./assets/album-slipknot-320.webp",
+        "alt": "Copertina dell’album Slipknot degli Slipknot"
+      },
+      {
+        "title": "System Of A Down",
+        "artist": "System Of A Down",
+        "track": "Suite-Pee",
+        "playlistTitle": "SOAD mix likes",
+        "playlistUrl": "https://open.spotify.com/playlist/0IIxtudsUOkQWUgj8wFOZu",
+        "albumUrl": "https://open.spotify.com/album/7p5mnxLTjbvs4kInkK8za9",
+        "cover": "./assets/album-soad-640.webp",
+        "mobileCover": "./assets/album-soad-320.webp",
+        "alt": "Copertina dell’album System Of A Down"
+      }
+    ],
+    "superfanUrl": "https://www.superfan.social/"
   },
   "games": [
     { "id": "the-finals", "title": "THE FINALS", "genre": "FPS / squadre", "description": "Sparatutto competitivo a squadre, ambientato in arene parzialmente distruttibili.", "cover": "./assets/game-the-finals-460.webp", "mobileCover": "./assets/game-the-finals-320.webp", "current": true },
@@ -84,7 +119,7 @@
         "description": "Silenzio, cielo e una linea d’orizzonte che rimette tutto in prospettiva.",
         "image": "./assets/viaggio-alta-quota-768.webp",
         "mobileImage": "./assets/viaggio-alta-quota-480.webp",
-        "alt": "Paesaggio montano d’alta quota",
+        "alt": "Persona su un sentiero in montagna, fotografata di spalle, con un paesaggio montano sullo sfondo.",
         "width": 768,
         "height": 1024
       },
@@ -93,41 +128,17 @@
         "title": "Cammino",
         "subtitle": "Lasciare spazio alla strada",
         "description": "Muoversi senza fretta, lasciando che sia il paesaggio a suggerire la direzione.",
-        "image": "./assets/viaggio-cammino-768.webp",
-        "mobileImage": "./assets/viaggio-cammino-480.webp",
-        "alt": "Cammino attraverso un paesaggio naturale",
-        "width": 768,
-        "height": 1152
+        "noteOnly": true
       }
     ],
     "coordinates": [
       { "title": "Osservare", "description": "Prima di arrivare, guardare: un luogo comincia dai suoi dettagli." },
-      { "title": "Camminare", "description": "La distanza rende più chiari i paesaggi e le idee." },
+      { "title": "Camminare", "description": "Lasciare spazio alla strada: muoversi senza fretta e lasciare che il paesaggio suggerisca la direzione." },
       { "title": "Ricordare", "description": "Una foto, una nota o una storia da riportare a casa." }
     ]
   },
-  "radio": {
-    "intro": "Il mondo radioamatoriale è un punto d’incontro tra curiosità, tecnica e comunicazione a distanza.",
-    "note": "I valori riportati sono una configurazione esemplificativa. Questo pannello è statico e non mostra o controlla una radio in tempo reale.",
-    "frequency": "144.800",
-    "unit": "MHz",
-    "mode": "FM / RX",
-    "power": "5.0 W",
-    "status": "READY",
-    "channel": "CH 04",
-    "areas": [
-      { "title": "Ascolto", "tag": "RX", "description": "Osservare segnali, frequenze e strumenti per capire come viaggiano le informazioni." },
-      { "title": "Sperimentazione", "tag": "LAB", "description": "Usare laboratorio ed elettronica per trasformare la teoria in qualcosa di verificabile." },
-      { "title": "Comunicazione", "tag": "TX", "description": "Considerare la radio come tecnica e ascolto, e come mezzo per creare collegamenti a distanza." }
-    ],
-    "register": [
-      { "title": "Telecomunicazioni", "description": "Sistemi e tecnologie che permettono la trasmissione di informazioni." },
-      { "title": "Radioamatorialità", "description": "Frequenze, ascolto, antenne e comunicazioni come spazio di sperimentazione personale." },
-      { "title": "Strumentazione", "description": "Lettura di strumenti e misure per trasformare un segnale in un dato comprensibile." }
-    ]
-  },
   "hobbies": {
-    "intro": "Le attività manuali, creative e da collezione aiutano a rallentare, imparare e costruire qualcosa di concreto.",
+    "intro": "Le attività manuali, creative e da collezione sono modi per rallentare, osservare, progettare e costruire qualcosa di concreto.",
     "approach": "Imparare facendo: in modo manuale, creativo, condiviso e collezionabile.",
     "items": [
       { "title": "Modellismo", "description": "Warhammer 40,000 e altri progetti, tra assemblaggio, pittura e cura dei dettagli." },
@@ -148,6 +159,7 @@
         "live": "https://pvunto.github.io/"
       }
     ],
-    "future": []
+    "future": [],
+    "completed": []
   }
 }

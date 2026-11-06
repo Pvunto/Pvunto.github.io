@@ -16,15 +16,15 @@ PAGES = [
     {
         "key": "home",
         "output": "index.html",
-        "title": "Punto — profilo personale di telecomunicazioni",
-        "description": "Profilo personale di Punto: telecomunicazioni, musica, videogiochi, viaggi, radio e attività creative.",
-        "keywords": "Punto, telecomunicazioni, musica, videogiochi, viaggi, radio, attività creative",
+        "title": "Punto — profilo personale",
+        "description": "Profilo personale di Punto: musica, videogiochi, viaggi e attività creative.",
+        "keywords": "Punto, musica, videogiochi, viaggi, attività creative",
     },
     {
         "key": "music",
         "output": "musica.html",
         "title": "Musica e ascolti personali — Punto",
-        "description": "Playlist quotidiane, colonne sonore, nuove scoperte musicali e collegamento al profilo Spotify di Punto.",
+        "description": "Quattro copertine di album presenti nei mix pubblici Spotify di Punto, aree d’ascolto e collegamento al profilo.",
         "keywords": "Punto, musica, ascolti, playlist, colonne sonore, Spotify",
     },
     {
@@ -38,7 +38,7 @@ PAGES = [
         "key": "projects",
         "output": "progetti.html",
         "title": "Progetti personali e portfolio — Punto",
-        "description": "Progetti personali di Punto, con stato delle attività in corso e delle idee future.",
+        "description": "Progetti personali di Punto, organizzati per stato: in corso, idee future e completati.",
         "keywords": "Punto, progetti personali, portfolio, HTML, CSS, JavaScript",
     },
 ]
@@ -89,10 +89,26 @@ def read_data() -> dict:
         if not asset.is_file():
             raise FileNotFoundError(f"Miniatura trailer mancante: {asset}")
     for item in data["travel"]["items"]:
+        if item.get("noteOnly"):
+            continue
         for key in ("image", "mobileImage"):
             asset = asset_path(item[key])
             if not asset.is_file():
                 raise FileNotFoundError(f"Immagine viaggio mancante: {asset}")
+    if not data["music"].get("albums"):
+        raise ValueError("La pagina Musica deve contenere almeno un album.")
+    for album in data["music"]["albums"]:
+        for key in ("cover", "mobileCover"):
+            asset = asset_path(album[key])
+            if not asset.is_file():
+                raise FileNotFoundError(f"Copertina album mancante: {asset}")
+        if not album["playlistUrl"].startswith("https://open.spotify.com/playlist/"):
+            raise ValueError(f"URL playlist Spotify non valido: {album['playlistUrl']}")
+        if not album["albumUrl"].startswith("https://open.spotify.com/album/"):
+            raise ValueError(f"URL album Spotify non valido: {album['albumUrl']}")
+    for stage in ("current", "future", "completed"):
+        if not isinstance(data["projects"].get(stage), list):
+            raise ValueError(f"Lo stato progetti '{stage}' deve essere un array.")
     return data
 
 
@@ -136,29 +152,34 @@ def base_page(page: dict, content: str, active: str | None = None, noindex: bool
     return absolutize_internal_urls(template)
 
 
-def music_cards(data: dict) -> str:
+def music_categories(data: dict) -> str:
+    return "\n".join(
+        f'<li class="music-focus-item"><span class="music-focus-number">{esc(item["number"])}</span>'
+        f'<div><h3>{esc(item["title"])}</h3><p>{esc(item["description"])}</p></div></li>'
+        for item in data["music"]["categories"]
+    )
+
+
+def music_albums(data: dict) -> str:
     cards = []
-    for item in data["music"]["listening"]:
+    for index, album in enumerate(data["music"]["albums"], start=1):
+        title = esc(album["title"])
+        artist = esc(album["artist"])
+        album_url = esc(album["albumUrl"])
+        playlist_url = esc(album["playlistUrl"])
+        cover = esc(album["cover"])
+        mobile = esc(album["mobileCover"])
         cards.append(
-            '<article class="music-card">'
-            f'<div class="music-card-top"><span>{esc(item["number"])}</span><span>{esc(item["category"])}</span></div>'
-            f'<h3>{esc(item["title"])}</h3><p>{esc(item["description"])}</p>'
-            '</article>'
+            f'<article class="album-panel album-panel--{index:02d}">'
+            f'<a class="album-cover" href="{album_url}" target="_blank" rel="noopener noreferrer" aria-label="Apri l’album {title} di {artist} su Spotify">'
+            f'<picture><source type="image/webp" srcset="{mobile} 320w, {cover} 640w" sizes="(max-width: 380px) 82vw, (max-width: 700px) 42vw, (max-width: 1000px) 34vw, 28vw">'
+            f'<img src="{cover}" width="640" height="640" alt="{esc(album["alt"])}" loading="lazy" decoding="async"></picture></a>'
+            f'<div class="album-copy"><p class="album-playlist-label"><span>{index:02d}</span> MIX / {esc(album["playlistTitle"])}</p>'
+            f'<h3>{title}</h3><p class="album-artist">{artist}</p>'
+            f'<p class="album-track"><span>BRANO</span> “{esc(album["track"])}”</p>'
+            f'<a class="album-playlist-link" href="{playlist_url}" target="_blank" rel="noopener noreferrer">Apri il mix Spotify <span aria-hidden="true">↗</span></a></div></article>'
         )
     return "\n".join(cards)
-
-
-def music_details(data: dict) -> str:
-    selections = data["music"]["selections"]
-    labels = {"genres": "Generi", "artists": "Artisti", "albums": "Album", "songs": "Brani"}
-    populated = [(labels[key], values) for key, values in selections.items() if values]
-    if not populated:
-        return '<p class="empty-note">Non sono ancora elencati generi, artisti, album o brani specifici.</p>'
-    sections = []
-    for label, values in populated:
-        tags = "".join(f"<li>{esc(value)}</li>" for value in values)
-        sections.append(f'<div class="selection-group"><h3>{esc(label)}</h3><ul>{tags}</ul></div>')
-    return "\n".join(sections)
 
 
 def game_cards(data: dict) -> str:
@@ -166,16 +187,24 @@ def game_cards(data: dict) -> str:
     for index, game in enumerate(data["games"], start=1):
         tags = "preferito attuale" if game.get("current") else "preferito"
         current_class = " is-current" if game.get("current") else ""
+        if game.get("current"):
+            layout = "feature"
+        elif index <= 10:
+            layout = "standard"
+        elif index <= 12:
+            layout = "wide"
+        else:
+            layout = "compact"
         current_label = (
             '<span class="current-label"><i aria-hidden="true"></i> ATTUALE</span>'
-            if game.get("current") else '<span class="favorite-mark" aria-label="Preferito">★</span>'
+            if game.get("current") else '<span class="favorite-mark" role="img" aria-label="Preferito">★</span>'
         )
         mobile = esc(game["mobileCover"])
         cover = esc(game["cover"])
         title = esc(game["title"])
         cards.append(
-            f'<article class="game-card{current_class}" data-game="{esc(game["id"])}" data-tags="{tags}">'
-            f'<div class="game-art"><picture><source type="image/webp" srcset="{mobile} 320w, {cover} 460w" sizes="(max-width: 650px) 46vw, (max-width: 900px) 30vw, 22vw">'
+            f'<article class="game-card game-card--{layout}{current_class}" data-game="{esc(game["id"])}" data-layout="{layout}" data-tags="{tags}">'
+            f'<div class="game-art"><picture><source type="image/webp" srcset="{mobile} 320w, {cover} 460w" sizes="(max-width: 500px) 90vw, (max-width: 700px) 46vw, (max-width: 900px) 30vw, 22vw">'
             f'<img src="{cover}" width="460" height="215" alt="Copertina di {title}" loading="lazy" decoding="async"></picture>'
             f'<span class="art-index">{index:02d}</span></div>'
             f'<div class="game-card-copy"><div class="game-meta"><span>{esc(game["genre"].upper())}</span>{current_label}</div>'
@@ -210,6 +239,13 @@ def trailer_cards(data: dict) -> str:
 def travel_cards(data: dict) -> str:
     cards = []
     for item in data["travel"]["items"]:
+        if item.get("noteOnly"):
+            cards.append(
+                f'<article class="travel-card travel-card--note"><div class="travel-card-top"><span>{esc(item["number"])}</span><span>APPUNTI DI PERCORSO</span></div>'
+                f'<div class="travel-note-body"><p class="travel-subtitle">{esc(item["subtitle"])}</p><h3>{esc(item["title"])}</h3>'
+                f'<p>{esc(item["description"])}</p></div></article>'
+            )
+            continue
         image = esc(item["image"])
         mobile = esc(item["mobileImage"])
         cards.append(
@@ -223,33 +259,8 @@ def travel_cards(data: dict) -> str:
 
 def coordinate_cards(data: dict) -> str:
     return "\n".join(
-        f'<article class="coordinate-card"><span>{index:02d}</span><h3>{esc(item["title"])}</h3><p>{esc(item["description"])}</p></article>'
+        f'<li class="coordinate-entry"><span>{index:02d}</span><strong>{esc(item["title"])}</strong><p>{esc(item["description"])}</p></li>'
         for index, item in enumerate(data["travel"]["coordinates"], start=1)
-    )
-
-
-def radio_metrics(data: dict) -> str:
-    radio = data["radio"]
-    fields = [
-        ("Modalità", radio["mode"]),
-        ("Potenza indicata", radio["power"]),
-        ("Stato esemplificativo", radio["status"]),
-        ("Canale", radio["channel"]),
-    ]
-    return "\n".join(f'<div class="radio-metric"><dt>{esc(label)}</dt><dd>{esc(value)}</dd></div>' for label, value in fields)
-
-
-def radio_areas(data: dict) -> str:
-    return "\n".join(
-        f'<article class="radio-area-card"><div><h3>{esc(item["title"])}</h3><span>{esc(item["tag"])}</span></div><p>{esc(item["description"])}</p></article>'
-        for item in data["radio"]["areas"]
-    )
-
-
-def radio_register(data: dict) -> str:
-    return "\n".join(
-        f'<article class="register-card"><h3>{esc(item["title"])}</h3><p>{esc(item["description"])}</p></article>'
-        for item in data["radio"]["register"]
     )
 
 
@@ -267,9 +278,10 @@ def project_card(project: dict, number: int) -> str:
     if project.get("live"):
         links.append(f'<a href="{esc(project["live"])}" target="_blank" rel="noopener noreferrer">Versione online ↗</a>')
     link_markup = "".join(links)
+    status_class = re.sub(r"[^a-z0-9]+", "-", project["status"].casefold()).strip("-")
     return (
         f'<article class="project-card"><div class="project-top"><span>{number:02d} / {esc(project["category"])}</span>'
-        f'<span class="project-status">{esc(project["status"])}</span></div>'
+        f'<span class="project-status project-status--{esc(status_class)}">{esc(project["status"])}</span></div>'
         f'<h3>{esc(project["name"])}</h3><p>{esc(project["description"])}</p>'
         f'<div class="project-links">{link_markup}</div></article>'
     )
@@ -278,7 +290,14 @@ def project_card(project: dict, number: int) -> str:
 def future_projects(data: dict) -> str:
     projects = data["projects"]["future"]
     if not projects:
-        return '<p class="empty-note">Non sono ancora state indicate idee future da pubblicare.</p>'
+        return '<p class="empty-note">Le idee future verranno aggiunte qui quando saranno definite.</p>'
+    return "\n".join(project_card(project, index) for index, project in enumerate(projects, start=1))
+
+
+def completed_projects(data: dict) -> str:
+    projects = data["projects"]["completed"]
+    if not projects:
+        return '<p class="empty-note">Non sono ancora elencati progetti completati.</p>'
     return "\n".join(project_card(project, index) for index, project in enumerate(projects, start=1))
 
 
@@ -290,7 +309,6 @@ def render(data: dict) -> None:
         "projects": (TEMPLATES / "projects.html").read_text(encoding="utf-8"),
         "not_found": (TEMPLATES / "404.html").read_text(encoding="utf-8"),
     }
-    radio = data["radio"]
     hobbies = data["hobbies"]
     replacements = {
         "home": {
@@ -301,23 +319,17 @@ def render(data: dict) -> None:
             "__TRAVEL_INTRO__": esc(data["travel"]["intro"]),
             "__TRAVEL_CARDS__": travel_cards(data),
             "__TRAVEL_COORDINATES__": coordinate_cards(data),
-            "__RADIO_INTRO__": esc(radio["intro"]),
-            "__RADIO_FREQUENCY__": esc(radio["frequency"]),
-            "__RADIO_UNIT__": esc(radio["unit"]),
-            "__RADIO_METRICS__": radio_metrics(data),
-            "__RADIO_NOTE__": esc(radio["note"]),
-            "__RADIO_AREAS__": radio_areas(data),
-            "__RADIO_REGISTER__": radio_register(data),
             "__HOBBIES_INTRO__": esc(hobbies["intro"]),
             "__HOBBIES_APPROACH__": esc(hobbies["approach"]),
             "__HOBBY_CARDS__": hobby_cards(data),
         },
         "music": {
-            "__MUSIC_CARDS__": music_cards(data),
-            "__MUSIC_DETAILS__": music_details(data),
-            "__SUPERFAN_STATUS__": esc(data["music"]["superfan"]["status"]),
+            "__MUSIC_OVERVIEW__": esc(data["music"]["overview"]),
+            "__MUSIC_CATEGORIES__": music_categories(data),
+            "__MUSIC_ALBUMS__": music_albums(data),
+            "__ALBUM_COUNT__": str(len(data["music"]["albums"])),
+            "__SUPERFAN_URL__": esc(data["music"]["superfanUrl"]),
             "__SPOTIFY_URL__": esc(data["music"]["spotify"]),
-            "__SUPERFAN_URL__": esc(data["music"]["superfan"]["url"]),
         },
         "games": {
             "__GAME_COUNT__": str(len(data["games"])),
@@ -329,10 +341,12 @@ def render(data: dict) -> None:
             "__TRAILER_CARDS__": trailer_cards(data),
         },
         "projects": {
+            "__CURRENT_PROJECT_COUNT__": str(len(data["projects"]["current"])),
             "__CURRENT_PROJECTS__": "\n".join(
                 project_card(project, index) for index, project in enumerate(data["projects"]["current"], start=1)
             ) or '<p class="empty-note">Non ci sono progetti attuali da mostrare.</p>',
             "__FUTURE_PROJECTS__": future_projects(data),
+            "__COMPLETED_PROJECTS__": completed_projects(data),
         },
     }
     page_data = {page["key"]: dict(page) for page in PAGES}

@@ -12,19 +12,19 @@ python3 build_site.py
 
 Il generatore usa la libreria standard di Python e aggiorna `index.html`, `musica.html`, `giochi.html`, `progetti.html`, `404.html`, `sitemap.xml` e `robots.txt`. I template in `templates/` compongono le pagine; non modificare a mano i file HTML generati, perché la build li sovrascrive.
 
-Il file JSON contiene profilo, musica, giochi, trailer, viaggi, radio, attività creative e progetti. Per aggiungere un gioco, aggiungi un oggetto all’array `games` con `id`, `title`, `genre`, `description`, `cover` e `mobileCover`; imposta `current: true` per segnalarlo come attuale. Tutti i titoli nell’elenco sono trattati come preferiti. Le miniature responsive devono essere copiate in `assets/`.
+Il file JSON contiene profilo, musica, giochi, trailer, viaggi, attività creative e progetti. L’interesse personale per radio e telecomunicazioni resta nel profilo, senza pannelli o configurazioni dimostrative. Per aggiungere un gioco, aggiungi un oggetto all’array `games` con `id`, `title`, `genre`, `description`, `cover` e `mobileCover`; imposta `current: true` per segnalarlo come attuale. Tutti i titoli nell’elenco sono trattati come preferiti. Le miniature responsive devono essere copiate in `assets/`.
 
-Per aggiornare i trailer, cambia l’ID YouTube, la descrizione e il canale in `trailers`. Il poster va conservato localmente in `assets/` e il suo percorso indicato nel campo `thumbnail`. L’iframe viene creato soltanto dopo il clic su Riproduci. Per aggiornare la musica, modifica `music.listening` o aggiungi le selezioni specifiche nei campi `music.selections`; il profilo Spotify è in `music.spotify`. Progetti correnti e futuri sono negli array omonimi sotto `projects`.
+Per aggiornare i trailer, cambia l’ID YouTube, la descrizione e il canale in `trailers`. Il poster va conservato localmente in `assets/` e il suo percorso indicato nel campo `thumbnail`. L’iframe viene creato soltanto dopo il clic su Riproduci. Per aggiornare la musica, modifica `music.spotify`, `music.categories` e `music.albums`. Ogni album contiene titolo, artista, brano associato, pagina album e playlist Spotify, testo alternativo e percorsi alle copertine locali 320/640 WebP. Gli stati dei progetti sono raccolti negli array `projects.current`, `projects.future` e `projects.completed`; gli array vuoti mostrano una nota, non schede fittizie.
 
 La foto originale del profilo resta in `assets/profilo.webp` e non viene sovrascritta dal processo di ottimizzazione. Per rigenerare le varianti WebP responsive dopo averla sostituita, installa Pillow e lancia `python3 tools/optimize_profile.py`.
 
 ## Superfan
 
-Le pagine ufficiali consultate sono il [sito Superfan](https://www.superfan.social/) e le [FAQ](https://www.superfan.social/faqs). Non vi è stata trovata documentazione pubblica verificabile di API o widget per incorporare un profilo; non è stata quindi aggiunta un’integrazione non documentata. La pagina Musica rimanda al servizio ufficiale. Se fornisci un URL pubblico del tuo profilo, si può sostituire il collegamento esterno generico con quello diretto.
+La pagina Musica espone un solo link esterno al [sito Superfan](https://www.superfan.social/); non integra player, widget, API o dati simulati. Non è stato fornito un URL personale Superfan.
 
 ## Performance e accessibilità
 
-Le foto del profilo e dei viaggi usano varianti WebP responsive; le copertine dei giochi sono responsive e lazy-loaded. I poster locali dei trailer non contattano YouTube: il player usa `youtube-nocookie.com` soltanto dopo l’interazione. Non ci sono librerie JavaScript o font remoti. Menu e filtri hanno etichette ARIA, il modulo feedback apre una bozza GitHub senza inviarla automaticamente e le animazioni rispettano `prefers-reduced-motion`.
+La foto personale originale resta in `assets/profilo.webp` e non viene sovrascritta dal processo di ottimizzazione; la pagina la mostra senza ritagli. Le immagini dei viaggi, giochi e album hanno varianti WebP responsive. I poster dei trailer sono locali e il player usa `youtube-nocookie.com` soltanto dopo l’interazione. Non ci sono librerie JavaScript o font remoti. Menu e filtri hanno etichette ARIA, il modulo contatti apre una bozza Issue GitHub senza inviarla automaticamente e le transizioni rispettano `prefers-reduced-motion`.
 
 ## Pubblicazione e archivio
 
