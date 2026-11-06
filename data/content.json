@@ -1,0 +1,153 @@
+{
+  "profile": {
+    "name": "Punto",
+    "intro": "Studente di telecomunicazioni, mi interesso di musica, videogiochi, viaggi, radio e attività creative.",
+    "about": "Mi interessano i sistemi che collegano persone, idee e strumenti: dalla musica alle radio, dai videogiochi ai progetti costruiti con le mani.",
+    "photo": "./assets/profilo.webp",
+    "photoAlt": "Persona in un campo, fotografata di spalle."
+  },
+  "music": {
+    "spotify": "https://open.spotify.com/user/31abl2l2355svrkgqsgj6nuon2z4",
+    "listening": [
+      {
+        "number": "01",
+        "title": "Ascolti quotidiani",
+        "category": "PLAYLIST",
+        "description": "Playlist personali e nuove scoperte per seguire il ritmo della giornata."
+      },
+      {
+        "number": "02",
+        "title": "Colonne sonore",
+        "category": "FILM / VIDEOGIOCHI",
+        "description": "Musiche che trasformano un momento, un viaggio o una sessione di gioco."
+      },
+      {
+        "number": "03",
+        "title": "Scoperte",
+        "category": "ARTISTI / GENERI / BRANI",
+        "description": "Artisti, generi e brani trovati per caso e rimasti in rotazione."
+      }
+    ],
+    "selections": {
+      "genres": [],
+      "artists": [],
+      "albums": [],
+      "songs": []
+    },
+    "superfan": {
+      "status": "Non risultano API o widget ufficiali pubblicamente documentati per incorporare un profilo Superfan in questo sito. Il collegamento resta esterno.",
+      "url": "https://www.superfan.social/"
+    }
+  },
+  "games": [
+    { "id": "the-finals", "title": "THE FINALS", "genre": "FPS / squadre", "description": "Sparatutto competitivo a squadre, ambientato in arene parzialmente distruttibili.", "cover": "./assets/game-the-finals-460.webp", "mobileCover": "./assets/game-the-finals-320.webp", "current": true },
+    { "id": "arc-raiders", "title": "ARC Raiders", "genre": "Azione / estrazione", "description": "Sparatutto d’estrazione in terza persona, ambientato in un mondo post-apocalittico.", "cover": "./assets/game-arc-raiders-460.webp", "mobileCover": "./assets/game-arc-raiders-320.webp", "current": true },
+    { "id": "night-in-the-woods", "title": "Night in the Woods", "genre": "Indie / narrativo", "description": "Avventura narrativa indipendente, con attenzione ai personaggi e alla storia.", "cover": "./assets/game-night-in-the-woods-460.webp", "mobileCover": "./assets/game-night-in-the-woods-320.webp" },
+    { "id": "outer-wilds", "title": "Outer Wilds", "genre": "Esplorazione / mistero", "description": "Esplorazione spaziale e indagine su un mistero in un sistema solare.", "cover": "./assets/game-outer-wilds-460.webp", "mobileCover": "./assets/game-outer-wilds-320.webp" },
+    { "id": "team-fortress-2", "title": "Team Fortress 2", "genre": "FPS / squadre", "description": "Sparatutto a squadre con classi, obiettivi e modalità diverse.", "cover": "./assets/game-team-fortress-2-460.webp", "mobileCover": "./assets/game-team-fortress-2-320.webp" },
+    { "id": "scp-secret-laboratory", "title": "SCP: Secret Laboratory", "genre": "Horror / multigiocatore", "description": "Horror multiplayer ambientato nel mondo della SCP Foundation, con ruoli e obiettivi diversi.", "cover": "./assets/game-scp-secret-laboratory-460.webp", "mobileCover": "./assets/game-scp-secret-laboratory-320.webp" },
+    { "id": "helldivers-2", "title": "HELLDIVERS 2", "genre": "TPS / cooperativo", "description": "Sparatutto cooperativo in terza persona con missioni svolte in squadra.", "cover": "./assets/game-helldivers-2-460.webp", "mobileCover": "./assets/game-helldivers-2-320.webp" },
+    { "id": "skyrim", "title": "The Elder Scrolls V: Skyrim", "genre": "Ruolo / open world", "description": "Gioco di ruolo open world ambientato nella provincia di Skyrim.", "cover": "./assets/game-skyrim-460.webp", "mobileCover": "./assets/game-skyrim-320.webp" },
+    { "id": "oneshot", "title": "OneShot", "genre": "Indie / narrativo", "description": "Avventura indipendente con enigmi e una storia che coinvolge direttamente il giocatore.", "cover": "./assets/game-oneshot-460.webp", "mobileCover": "./assets/game-oneshot-320.webp" },
+    { "id": "hell-let-loose", "title": "Hell Let Loose", "genre": "FPS / tattico", "description": "Sparatutto tattico con battaglie su larga scala ambientate nella Seconda guerra mondiale.", "cover": "./assets/game-hell-let-loose-460.webp", "mobileCover": "./assets/game-hell-let-loose-320.webp" },
+    { "id": "deep-rock-galactic", "title": "Deep Rock Galactic", "genre": "Azione / cooperativo", "description": "Una squadra di nani affronta missioni in ambienti sotterranei da esplorare.", "cover": "./assets/game-deep-rock-galactic-460.webp", "mobileCover": "./assets/game-deep-rock-galactic-320.webp" },
+    { "id": "kerbal-space-program", "title": "Kerbal Space Program", "genre": "Simulazione / ingegneria", "description": "Simulatore spaziale incentrato sulla progettazione e conduzione di missioni.", "cover": "./assets/game-kerbal-space-program-460.webp", "mobileCover": "./assets/game-kerbal-space-program-320.webp" },
+    { "id": "firewatch", "title": "Firewatch", "genre": "Esplorazione / storia", "description": "Avventura narrativa in prima persona ambientata nelle foreste del Wyoming.", "cover": "./assets/game-firewatch-460.webp", "mobileCover": "./assets/game-firewatch-320.webp" },
+    { "id": "sea-of-thieves", "title": "Sea of Thieves", "genre": "Esplorazione / navigazione", "description": "Avventura multiplayer tra esplorazione, navigazione e battaglie navali.", "cover": "./assets/game-sea-of-thieves-460.webp", "mobileCover": "./assets/game-sea-of-thieves-320.webp" },
+    { "id": "foxhole", "title": "Foxhole", "genre": "Strategia / campagna", "description": "Gioco di guerra persistente in cui i giocatori contribuiscono a una campagna collettiva.", "cover": "./assets/game-foxhole-460.webp", "mobileCover": "./assets/game-foxhole-320.webp" }
+  ],
+  "trailers": [
+    {
+      "id": "XE0y_K8-iSQ",
+      "title": "ARC Raiders — Pre-Order Trailer",
+      "label": "TRAILER / PREORDINE",
+      "description": "Trailer ufficiale di preordine pubblicato sul canale ARC Raiders.",
+      "source": "https://www.youtube.com/@ARCRaidersGame",
+      "thumbnail": "./assets/trailer-arc-raiders.webp"
+    },
+    {
+      "id": "MYQLw2b__qA",
+      "title": "THE FINALS — Closed Beta",
+      "label": "TRAILER / CLOSED BETA",
+      "description": "Trailer ufficiale della Closed Beta di THE FINALS, marzo 2023.",
+      "source": "https://www.youtube.com/@reachthefinals",
+      "thumbnail": "./assets/trailer-the-finals.webp"
+    }
+  ],
+  "travel": {
+    "intro": "Per Punto, partire significa cambiare scala: osservare paesaggi, attraversare luoghi nuovi e tornare con una prospettiva diversa.",
+    "items": [
+      {
+        "number": "01",
+        "title": "Alta quota",
+        "subtitle": "Guardare più lontano",
+        "description": "Silenzio, cielo e una linea d’orizzonte che rimette tutto in prospettiva.",
+        "image": "./assets/viaggio-alta-quota-768.webp",
+        "mobileImage": "./assets/viaggio-alta-quota-480.webp",
+        "alt": "Paesaggio montano d’alta quota",
+        "width": 768,
+        "height": 1024
+      },
+      {
+        "number": "02",
+        "title": "Cammino",
+        "subtitle": "Lasciare spazio alla strada",
+        "description": "Muoversi senza fretta, lasciando che sia il paesaggio a suggerire la direzione.",
+        "image": "./assets/viaggio-cammino-768.webp",
+        "mobileImage": "./assets/viaggio-cammino-480.webp",
+        "alt": "Cammino attraverso un paesaggio naturale",
+        "width": 768,
+        "height": 1152
+      }
+    ],
+    "coordinates": [
+      { "title": "Osservare", "description": "Prima di arrivare, guardare: un luogo comincia dai suoi dettagli." },
+      { "title": "Camminare", "description": "La distanza rende più chiari i paesaggi e le idee." },
+      { "title": "Ricordare", "description": "Una foto, una nota o una storia da riportare a casa." }
+    ]
+  },
+  "radio": {
+    "intro": "Il mondo radioamatoriale è un punto d’incontro tra curiosità, tecnica e comunicazione a distanza.",
+    "note": "I valori riportati sono una configurazione esemplificativa. Questo pannello è statico e non mostra o controlla una radio in tempo reale.",
+    "frequency": "144.800",
+    "unit": "MHz",
+    "mode": "FM / RX",
+    "power": "5.0 W",
+    "status": "READY",
+    "channel": "CH 04",
+    "areas": [
+      { "title": "Ascolto", "tag": "RX", "description": "Osservare segnali, frequenze e strumenti per capire come viaggiano le informazioni." },
+      { "title": "Sperimentazione", "tag": "LAB", "description": "Usare laboratorio ed elettronica per trasformare la teoria in qualcosa di verificabile." },
+      { "title": "Comunicazione", "tag": "TX", "description": "Considerare la radio come tecnica e ascolto, e come mezzo per creare collegamenti a distanza." }
+    ],
+    "register": [
+      { "title": "Telecomunicazioni", "description": "Sistemi e tecnologie che permettono la trasmissione di informazioni." },
+      { "title": "Radioamatorialità", "description": "Frequenze, ascolto, antenne e comunicazioni come spazio di sperimentazione personale." },
+      { "title": "Strumentazione", "description": "Lettura di strumenti e misure per trasformare un segnale in un dato comprensibile." }
+    ]
+  },
+  "hobbies": {
+    "intro": "Le attività manuali, creative e da collezione aiutano a rallentare, imparare e costruire qualcosa di concreto.",
+    "approach": "Imparare facendo: in modo manuale, creativo, condiviso e collezionabile.",
+    "items": [
+      { "title": "Modellismo", "description": "Warhammer 40,000 e altri progetti, tra assemblaggio, pittura e cura dei dettagli." },
+      { "title": "Giochi da tavolo", "description": "Regole, strategie e serate condivise attorno a un tavolo." },
+      { "title": "Stampa 3D", "description": "Dall’idea al modello, sperimentando con forme, materiali e oggetti utili." },
+      { "title": "Collezionismo", "description": "Oggetti, serie e materiali scelti con curiosità e attenzione." },
+      { "title": "Fumetti", "description": "Una passione più recente tra illustrazione, narrazione e nuovi universi da scoprire." }
+    ]
+  },
+  "projects": {
+    "current": [
+      {
+        "name": "Sito personale Punto",
+        "status": "In corso",
+        "category": "WEB / HTML · CSS · JAVASCRIPT",
+        "description": "Sito personale statico per raccogliere interessi, ascolti, giochi preferiti e progetti.",
+        "repository": "https://github.com/Pvunto/Pvunto.github.io",
+        "live": "https://pvunto.github.io/"
+      }
+    ],
+    "future": []
+  }
+}
