@@ -12,7 +12,7 @@ python3 build_site.py
 
 Il generatore usa la libreria standard di Python e aggiorna `index.html`, `musica.html`, `giochi.html`, `progetti.html`, `404.html`, `sitemap.xml` e `robots.txt`. I template in `templates/` compongono le pagine; non modificare a mano i file HTML generati, perché la build li sovrascrive.
 
-Il file JSON contiene profilo, musica, giochi, trailer, viaggi, attività creative e progetti. L’interesse personale per radio e telecomunicazioni resta nel profilo, senza pannelli o configurazioni dimostrative. Per aggiungere un gioco, aggiungi un oggetto all’array `games` con `id`, `title`, `genre`, `description`, `cover` e `mobileCover`; imposta `current: true` per segnalarlo come attuale. Tutti i titoli nell’elenco sono trattati come preferiti. Le miniature responsive devono essere copiate in `assets/`.
+Il file JSON contiene profilo, musica, giochi, trailer, attività creative e progetti. Il blocco Viaggi è stato rimosso dalla Home; l’interesse personale per i viaggi resta nel profilo. L’interesse per radio e telecomunicazioni resta nel profilo, senza pannelli o configurazioni dimostrative. Per aggiungere un gioco, aggiungi un oggetto all’array `games` con `id`, `title`, `genre`, `description`, `cover` e `mobileCover`; imposta `current: true` per segnalarlo come attuale. Tutti i titoli nell’elenco sono trattati come preferiti. Le miniature responsive devono essere copiate in `assets/`.
 
 Per aggiornare i trailer, cambia l’ID YouTube, la descrizione e il canale in `trailers`. Il poster va conservato localmente in `assets/` e il suo percorso indicato nel campo `thumbnail`. L’iframe viene creato soltanto dopo il clic su Riproduci. Per aggiornare la musica, modifica `music.spotify`, `music.categories` e `music.albums`. Ogni album contiene titolo, artista, brano associato, pagina album e playlist Spotify, testo alternativo e percorsi alle copertine locali 320/640 WebP. Gli stati dei progetti sono raccolti negli array `projects.current`, `projects.future` e `projects.completed`; gli array vuoti mostrano una nota, non schede fittizie.
 
@@ -24,7 +24,7 @@ La pagina Musica espone un solo link esterno al [sito Superfan](https://www.supe
 
 ## Performance e accessibilità
 
-La foto personale originale resta in `assets/profilo.webp` e non viene sovrascritta dal processo di ottimizzazione; la pagina la mostra senza ritagli. Le immagini dei viaggi, giochi e album hanno varianti WebP responsive. I poster dei trailer sono locali e il player usa `youtube-nocookie.com` soltanto dopo l’interazione. Non ci sono librerie JavaScript o font remoti. Menu e filtri hanno etichette ARIA, il modulo contatti apre una bozza Issue GitHub senza inviarla automaticamente e le transizioni rispettano `prefers-reduced-motion`.
+La foto personale originale resta in `assets/profilo.webp` e non viene sovrascritta dal processo di ottimizzazione; la pagina la mostra senza ritagli. Le immagini dei giochi e degli album hanno varianti WebP responsive. I poster dei trailer sono locali e il player usa `youtube-nocookie.com` soltanto dopo l’interazione. Non ci sono librerie JavaScript o font remoti. Menu e filtri hanno etichette ARIA, il modulo contatti apre una bozza Issue GitHub senza inviarla automaticamente e le transizioni rispettano `prefers-reduced-motion`.
 
 ## Pubblicazione e archivio
 

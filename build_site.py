@@ -76,10 +76,6 @@ def read_data() -> dict:
         "./assets/profilo-192.webp",
         "./assets/profilo-384.webp",
         "./assets/profilo-768.webp",
-        "./assets/viaggio-alta-quota-480.webp",
-        "./assets/viaggio-alta-quota-768.webp",
-        "./assets/viaggio-cammino-480.webp",
-        "./assets/viaggio-cammino-768.webp",
     ):
         asset = asset_path(image)
         if not asset.is_file():
@@ -88,13 +84,6 @@ def read_data() -> dict:
         asset = asset_path(trailer["thumbnail"])
         if not asset.is_file():
             raise FileNotFoundError(f"Miniatura trailer mancante: {asset}")
-    for item in data["travel"]["items"]:
-        if item.get("noteOnly"):
-            continue
-        for key in ("image", "mobileImage"):
-            asset = asset_path(item[key])
-            if not asset.is_file():
-                raise FileNotFoundError(f"Immagine viaggio mancante: {asset}")
     if not data["music"].get("albums"):
         raise ValueError("La pagina Musica deve contenere almeno un album.")
     for album in data["music"]["albums"]:
@@ -236,34 +225,6 @@ def trailer_cards(data: dict) -> str:
     return "\n".join(cards)
 
 
-def travel_cards(data: dict) -> str:
-    cards = []
-    for item in data["travel"]["items"]:
-        if item.get("noteOnly"):
-            cards.append(
-                f'<article class="travel-card travel-card--note"><div class="travel-card-top"><span>{esc(item["number"])}</span><span>APPUNTI DI PERCORSO</span></div>'
-                f'<div class="travel-note-body"><p class="travel-subtitle">{esc(item["subtitle"])}</p><h3>{esc(item["title"])}</h3>'
-                f'<p>{esc(item["description"])}</p></div></article>'
-            )
-            continue
-        image = esc(item["image"])
-        mobile = esc(item["mobileImage"])
-        cards.append(
-            f'<article class="travel-card"><div class="travel-card-top"><span>{esc(item["number"])}</span><span>ARCHIVIO VISIVO</span></div>'
-            f'<picture><source type="image/webp" srcset="{mobile} 480w, {image} {int(item["width"])}w" sizes="(max-width: 700px) 88vw, (max-width: 1000px) 43vw, 36vw">'
-            f'<img src="{image}" width="{int(item["width"])}" height="{int(item["height"])}" alt="{esc(item["alt"])}" loading="lazy" decoding="async"></picture>'
-            f'<div class="travel-card-copy"><p class="travel-subtitle">{esc(item["subtitle"])}</p><h3>{esc(item["title"])}</h3><p>{esc(item["description"])}</p></div></article>'
-        )
-    return "\n".join(cards)
-
-
-def coordinate_cards(data: dict) -> str:
-    return "\n".join(
-        f'<li class="coordinate-entry"><span>{index:02d}</span><strong>{esc(item["title"])}</strong><p>{esc(item["description"])}</p></li>'
-        for index, item in enumerate(data["travel"]["coordinates"], start=1)
-    )
-
-
 def hobby_cards(data: dict) -> str:
     return "\n".join(
         f'<article class="hobby-card"><span>{index:02d}</span><h3>{esc(item["title"])}</h3><p>{esc(item["description"])}</p></article>'
@@ -316,9 +277,6 @@ def render(data: dict) -> None:
             "__PROFILE_ABOUT__": esc(data["profile"]["about"]),
             "__PROFILE_PHOTO__": esc(data["profile"]["photo"].replace("profilo.webp", "profilo-768.webp")),
             "__PROFILE_PHOTO_ALT__": esc(data["profile"]["photoAlt"]),
-            "__TRAVEL_INTRO__": esc(data["travel"]["intro"]),
-            "__TRAVEL_CARDS__": travel_cards(data),
-            "__TRAVEL_COORDINATES__": coordinate_cards(data),
             "__HOBBIES_INTRO__": esc(hobbies["intro"]),
             "__HOBBIES_APPROACH__": esc(hobbies["approach"]),
             "__HOBBY_CARDS__": hobby_cards(data),

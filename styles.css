@@ -31,7 +31,7 @@ h1, h2, h3, p, figure { margin-top: 0; }
 .skip-link { position: fixed; z-index: 100; top: 10px; left: 10px; padding: 10px 14px; color: var(--ink); background: var(--lime); border: var(--border); transform: translateY(-160%); }
 .skip-link:focus { transform: translateY(0); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-.eyebrow, .section-index, .panel-number, .hero-tags, .header-index, .portrait-panel figcaption, .route-index, .project-top, .feedback-card-head, .page-hero-index, .video-disclosure, .art-index, .footer-bottom, .travel-card-top { font: 500 10px/1.5 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.eyebrow, .section-index, .panel-number, .hero-tags, .header-index, .portrait-panel figcaption, .route-index, .project-top, .feedback-card-head, .page-hero-index, .video-disclosure, .art-index, .footer-bottom { font: 500 10px/1.5 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .eyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-bottom: 20px; color: #545c52; }
 .eyebrow > span:last-child { color: #73796e; }
 .eyebrow-square { width: 8px; height: 8px; background: var(--lime); border: 1px solid var(--ink); }
@@ -82,44 +82,16 @@ h1, h2, h3, p, figure { margin-top: 0; }
 .section-heading h2, .projects-section-head h2, .music-focus-heading h2, .albums-heading h2 { margin: 0; font-size: clamp(38px, 4.4vw, 59px); font-weight: 800; line-height: .98; letter-spacing: -.07em; }
 .section-heading > p { max-width: 335px; margin: 0 0 3px; color: var(--muted); font-size: 13px; }
 .route-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 12px; }
-.route-card { position: relative; display: flex; grid-column: span 3; min-height: 225px; flex-direction: column; align-items: flex-start; overflow: hidden; padding: 19px; border: var(--border); background: var(--surface); text-decoration: none; transition: transform .16s, box-shadow .16s, background-color .16s; }
+.route-card { position: relative; display: flex; grid-column: span 4; min-height: 225px; flex-direction: column; align-items: flex-start; overflow: hidden; padding: 19px; border: var(--border); background: var(--surface); text-decoration: none; transition: transform .16s, box-shadow .16s, background-color .16s; }
 .route-card:hover { z-index: 1; transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); }
 .route-card::after { position: absolute; right: 0; bottom: 0; width: 105px; height: 85px; content: ''; opacity: .13; background-image: radial-gradient(var(--ink) .8px, transparent .9px); background-size: 7px 7px; mask-image: linear-gradient(135deg, transparent 0%, #000 100%); }
 .route-music { background-color: #edf0df; }
 .route-games { background-color: #f2eee4; }
 .route-projects { background-color: #e8ebe2; }
-.route-travel { background-color: #e7ecdf; }
 .route-index { position: relative; z-index: 1; color: #545b52; font-size: 8px; }
 .route-card h3 { position: relative; z-index: 1; margin: auto 0 5px; font-size: 26px; font-weight: 800; letter-spacing: -.055em; }
 .route-card p { position: relative; z-index: 1; max-width: 260px; margin: 0; color: #50574f; font-size: 11px; }
 .route-arrow { position: absolute; z-index: 2; right: 15px; bottom: 16px; font-size: 18px; }
-
-/* Viaggi: una fotografia originale e un pannello testuale, senza ripetere il ritratto. */
-.travel-section { padding: 76px 0 71px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper-deep); }
-.travel-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: start; gap: 13px; }
-.travel-card { position: relative; min-width: 0; overflow: hidden; border: var(--border); background: var(--surface); }
-.travel-card:first-child { grid-column: span 7; }
-.travel-card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; color: #525a50; border-bottom: 1px solid var(--ink); background: var(--surface); font-size: 8px; }
-.travel-card picture { display: block; overflow: hidden; background: #deddd4; }
-.travel-card img { width: 100%; height: auto; object-fit: contain; }
-.travel-card-copy { padding: 17px 19px 19px; }
-.travel-subtitle { margin: 0 0 4px; color: #62695f; font: 500 8px/1.5 var(--mono); letter-spacing: .07em; text-transform: uppercase; }
-.travel-card-copy h3 { margin: 0 0 6px; font-size: 24px; font-weight: 800; letter-spacing: -.05em; }
-.travel-card-copy > p:last-child { max-width: 540px; margin: 0; color: #4d554b; font-size: 11px; }
-.travel-card--note { grid-column: span 5; display: flex; min-height: 295px; flex-direction: column; margin-top: 35px; background: var(--lime); }
-.travel-card--note::after { position: absolute; right: 0; bottom: 0; width: 105px; height: 95px; content: ''; opacity: .15; background-image: radial-gradient(var(--ink) .8px, transparent .9px); background-size: 7px 7px; mask-image: linear-gradient(135deg, transparent, #000); pointer-events: none; }
-.travel-card--note .travel-card-top { position: relative; z-index: 1; }
-.travel-note-body { position: relative; z-index: 1; margin: auto 0; padding: clamp(20px, 3vw, 34px); }
-.travel-note-body h3 { margin: 0 0 10px; font-size: clamp(35px, 4vw, 49px); font-weight: 820; line-height: .95; letter-spacing: -.07em; }
-.travel-note-body > p:last-child { max-width: 350px; margin: 0; color: #343a2f; font-size: 12px; }
-.travel-coordinates { display: grid; grid-template-columns: 205px minmax(0, 1fr); align-items: start; gap: 20px; margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); }
-.travel-coordinates .section-index { margin: 0; }
-.coordinate-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0; margin: 0; border-top: 2px solid var(--ink); list-style: none; }
-.coordinate-entry { display: grid; grid-template-columns: 27px minmax(0, 1fr); align-content: start; gap: 5px 9px; min-width: 0; padding: 12px 10px 13px; border-bottom: 1px solid var(--line); }
-.coordinate-entry + .coordinate-entry { border-left: 1px solid var(--line); }
-.coordinate-entry > span { display: grid; grid-row: span 2; place-items: center; width: 23px; height: 23px; border: 1px solid var(--ink); background: var(--surface); font: 500 8px var(--mono); }
-.coordinate-entry strong { font-size: 12px; line-height: 1.35; }
-.coordinate-entry p { grid-column: 2; margin: 0; color: #555d53; font-size: 9px; line-height: 1.5; }
 
 /* Attività creative: schede informative, senza icone o riempitivi. */
 .hobbies-section { padding: 75px 0 70px; border-bottom: 1px solid var(--line); background: var(--paper); }
@@ -291,6 +263,7 @@ h1, h2, h3, p, figure { margin-top: 0; }
   .home-copy h1 { font-size: clamp(54px, 7vw, 74px); }
   .portrait-panel { width: 100%; }
   .route-card { grid-column: span 6; min-height: 195px; }
+  .route-card:nth-child(3) { grid-column: 4 / span 6; }
   .page-hero { grid-template-columns: minmax(0, 1fr) 230px; }
   .game-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .game-card--feature, .game-card--wide { grid-column: span 3; }
@@ -336,15 +309,7 @@ h1, h2, h3, p, figure { margin-top: 0; }
   .route-card { min-height: 170px; padding: 15px; }
   .route-card h3 { font-size: 23px; }
   .route-card p { max-width: 250px; font-size: 10px; }
-  .travel-section, .hobbies-section { padding-top: 48px; padding-bottom: 49px; }
-  .travel-grid { grid-template-columns: 1fr; gap: 9px; }
-  .travel-card:first-child, .travel-card--note { grid-column: 1 / -1; }
-  .travel-card--note { min-height: 225px; margin-top: 0; }
-  .travel-note-body { padding: 20px; }
-  .travel-note-body h3 { font-size: 38px; }
-  .travel-coordinates { grid-template-columns: 1fr; gap: 10px; margin-top: 19px; }
-  .coordinate-list { grid-template-columns: 1fr; }
-  .coordinate-entry + .coordinate-entry { border-left: 0; }
+  .hobbies-section { padding-top: 48px; padding-bottom: 49px; }
   .hobby-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
   .hobby-card { min-height: 150px; padding: 12px; }
   .hobby-card h3 { margin-top: 13px; font-size: 15px; }
@@ -428,6 +393,7 @@ h1, h2, h3, p, figure { margin-top: 0; }
   .site-header { padding-inline: 16px; }
   .route-grid { grid-template-columns: 1fr; }
   .route-card { grid-column: 1 / -1; min-height: 148px; }
+  .route-card:nth-child(3) { grid-column: 1 / -1; }
   .page-hero-copy h1 { font-size: clamp(53px, 14vw, 70px); }
   .games-toolbar h2 { font-size: 22px; }
   .game-filters { display: grid; grid-template-columns: repeat(3, 1fr); }

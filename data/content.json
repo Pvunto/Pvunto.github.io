@@ -109,34 +109,6 @@
       "thumbnail": "./assets/trailer-the-finals.webp"
     }
   ],
-  "travel": {
-    "intro": "Per Punto, partire significa cambiare scala: osservare paesaggi, attraversare luoghi nuovi e tornare con una prospettiva diversa.",
-    "items": [
-      {
-        "number": "01",
-        "title": "Alta quota",
-        "subtitle": "Guardare più lontano",
-        "description": "Silenzio, cielo e una linea d’orizzonte che rimette tutto in prospettiva.",
-        "image": "./assets/viaggio-alta-quota-768.webp",
-        "mobileImage": "./assets/viaggio-alta-quota-480.webp",
-        "alt": "Persona su un sentiero in montagna, fotografata di spalle, con un paesaggio montano sullo sfondo.",
-        "width": 768,
-        "height": 1024
-      },
-      {
-        "number": "02",
-        "title": "Cammino",
-        "subtitle": "Lasciare spazio alla strada",
-        "description": "Muoversi senza fretta, lasciando che sia il paesaggio a suggerire la direzione.",
-        "noteOnly": true
-      }
-    ],
-    "coordinates": [
-      { "title": "Osservare", "description": "Prima di arrivare, guardare: un luogo comincia dai suoi dettagli." },
-      { "title": "Camminare", "description": "Lasciare spazio alla strada: muoversi senza fretta e lasciare che il paesaggio suggerisca la direzione." },
-      { "title": "Ricordare", "description": "Una foto, una nota o una storia da riportare a casa." }
-    ]
-  },
   "hobbies": {
     "intro": "Le attività manuali, creative e da collezione sono modi per rallentare, osservare, progettare e costruire qualcosa di concreto.",
     "approach": "Imparare facendo: in modo manuale, creativo, condiviso e collezionabile.",
