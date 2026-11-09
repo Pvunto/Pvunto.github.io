@@ -440,3 +440,307 @@ h1, h2, h3, p, figure { margin-top: 0; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+/* Direzione comic-store: vetrina scura, titoli display e copertine in primo piano.
+   Palette originale mantenuta; nessun artwork del riferimento viene riutilizzato. */
+:root {
+  --display: "Nimbus Sans Narrow", "Arial Narrow", Impact, sans-serif;
+}
+
+body {
+  background-color: var(--paper);
+  background-image: radial-gradient(rgba(17, 19, 15, .035) .65px, transparent .8px);
+  background-size: 9px 9px;
+}
+
+.site-header {
+  color: var(--surface);
+  background: var(--ink);
+  border-bottom: 4px solid var(--lime);
+}
+.brand, .footer-brand { color: var(--surface); }
+.brand-word > span, .footer-brand > span:last-child > span { color: var(--lime); }
+.site-nav a {
+  color: var(--surface);
+  border-color: rgba(255, 254, 249, .18);
+  font: 700 9px/1.2 var(--mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.site-nav a:hover, .site-nav a[aria-current="page"] {
+  color: var(--ink);
+  background: var(--lime);
+  border-color: var(--lime);
+}
+.site-nav a[aria-current="page"]::after { background: var(--ink); }
+.header-index { color: var(--lime); }
+
+.home-copy {
+  color: var(--surface);
+  background: var(--ink);
+  border: 3px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--lime);
+}
+.home-copy::after {
+  opacity: .18;
+  background-image: radial-gradient(var(--lime) .8px, transparent .9px);
+}
+.home-copy .eyebrow { color: var(--lime); }
+.home-copy .eyebrow > span:last-child { color: rgba(255, 254, 249, .66); }
+.home-copy h1 {
+  font-family: var(--display);
+  font-size: clamp(64px, 7.8vw, 108px);
+  font-weight: 900;
+  line-height: .82;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+}
+.home-copy h1 span { color: var(--lime); }
+.hero-intro { color: rgba(255, 254, 249, .78); }
+.text-link { color: var(--surface); border-color: var(--surface); }
+.hero-tags span {
+  color: var(--surface);
+  border-color: rgba(255, 254, 249, .28);
+  background: transparent;
+}
+.portrait-panel {
+  border: 3px solid var(--ink);
+  background: var(--lime);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+.portrait-panel picture { border: 2px solid var(--ink); }
+.profile-intro {
+  color: var(--surface);
+  border-color: var(--lime);
+  background: var(--ink);
+  padding-inline: 19px;
+}
+.profile-intro .section-index { color: var(--lime); }
+.profile-intro .section-index > span:first-child {
+  color: var(--ink);
+  border-color: var(--lime);
+  background: var(--lime);
+}
+.profile-intro > p:nth-child(2) { color: rgba(255, 254, 249, .8); }
+
+.routes-section {
+  margin-block: 36px;
+  padding: clamp(21px, 3.2vw, 38px);
+  color: var(--surface);
+  border: 3px solid var(--ink);
+  background: var(--ink);
+}
+.routes-section .eyebrow, .routes-section .section-index { color: var(--lime); }
+.routes-section .eyebrow > span:last-child { color: rgba(255, 254, 249, .68); }
+.routes-section .section-heading h2 {
+  color: var(--surface);
+  font-family: var(--display);
+  text-transform: uppercase;
+}
+.routes-section .section-heading h2 em { color: var(--lime); }
+.routes-section .section-heading > p { color: rgba(255, 254, 249, .72); }
+.route-card {
+  min-height: 218px;
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  background: var(--surface);
+}
+.route-index {
+  padding: 5px 7px;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  background: var(--lime);
+}
+.route-card h3 {
+  font-family: var(--display);
+  font-size: 30px;
+  letter-spacing: -.035em;
+  text-transform: uppercase;
+}
+.route-card:hover {
+  color: var(--ink);
+  background: var(--lime);
+  box-shadow: 5px 5px 0 var(--surface);
+}
+
+.hobbies-section {
+  border-bottom: 3px solid var(--ink);
+  background: var(--paper-deep);
+}
+.hobby-card {
+  color: var(--surface);
+  border: 2px solid var(--ink);
+  background: var(--ink);
+}
+.hobby-card:nth-child(even) { background: var(--ink-soft); }
+.hobby-card h3 {
+  color: var(--lime);
+  font-family: var(--display);
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.hobby-card p { color: rgba(255, 254, 249, .76); }
+.hobby-approach { border-left-width: 4px; background: var(--surface); }
+
+.page-hero {
+  margin-top: 27px;
+  margin-bottom: 34px;
+  padding: clamp(24px, 4vw, 49px);
+  color: var(--surface);
+  border: 3px solid var(--ink);
+  background: var(--ink);
+  box-shadow: 8px 8px 0 var(--lime);
+}
+.page-hero-copy .eyebrow { color: var(--lime); }
+.page-hero-copy .eyebrow > span:last-child { color: rgba(255, 254, 249, .65); }
+.page-hero-copy h1 {
+  font-family: var(--display);
+  font-size: clamp(62px, 8.5vw, 116px);
+  line-height: .82;
+  letter-spacing: -.045em;
+  text-transform: uppercase;
+}
+.page-hero-copy h1 em { color: var(--lime); }
+.page-hero-copy > p:not(.eyebrow) { color: rgba(255, 254, 249, .78); }
+.page-hero-index {
+  min-height: 205px;
+  color: var(--ink);
+  border: 2px solid var(--surface);
+  background: var(--lime);
+  box-shadow: 5px 5px 0 var(--surface);
+}
+.page-hero-index strong {
+  font-family: var(--display);
+  font-size: clamp(84px, 10vw, 132px);
+  letter-spacing: -.055em;
+}
+.page-hero--music .page-hero-index,
+.page-hero--games .page-hero-index,
+.page-hero--projects .page-hero-index { color: var(--ink); background: var(--lime); }
+.page-hero--games .page-hero-index strong,
+.page-hero--projects .page-hero-index strong { color: var(--ink); }
+
+.music-focus-heading h2, .albums-heading h2,
+.trailer-heading h2, .projects-section-head h2 {
+  font-family: var(--display);
+  text-transform: uppercase;
+}
+.music-albums {
+  color: var(--surface);
+  border-top: 4px solid var(--lime);
+  border-bottom: 4px solid var(--lime);
+  background: var(--ink);
+}
+.albums-heading .section-index { color: var(--lime); }
+.albums-heading .section-index > span:first-child { color: var(--ink); background: var(--lime); }
+.albums-heading h2 { color: var(--surface); }
+.albums-heading h2 em { color: var(--lime); }
+.albums-heading > p { color: rgba(255, 254, 249, .75); }
+.album-panel {
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--lime);
+}
+.album-cover { border-right-width: 2px; }
+.album-panel:nth-child(even) .album-cover { border-left-width: 2px; }
+.superfan-link { color: var(--surface); border-top-color: var(--lime); }
+
+.games-content {
+  margin-block: 27px;
+  padding-inline: clamp(14px, 2.5vw, 28px);
+  color: var(--surface);
+  border: 3px solid var(--ink);
+  background: var(--ink);
+}
+.games-toolbar { border-bottom: 3px solid var(--lime); }
+.games-toolbar .section-index { color: var(--lime); }
+.games-toolbar .section-index > span:first-child { color: var(--ink); background: var(--lime); }
+.games-toolbar h2 {
+  font-family: var(--display);
+  font-size: clamp(25px, 3vw, 38px);
+  text-transform: uppercase;
+}
+.filter-button {
+  color: var(--surface);
+  border-color: var(--surface);
+  font-family: var(--mono);
+  text-transform: uppercase;
+}
+.filter-button:hover, .filter-button.is-active {
+  color: var(--ink);
+  border-color: var(--lime);
+  background: var(--lime);
+}
+.game-card { color: var(--ink); border: 2px solid var(--ink); }
+.game-card:hover { box-shadow: 5px 5px 0 var(--lime); }
+.game-card.is-current { border: 3px solid var(--lime); }
+.art-index { color: var(--ink); border: 1px solid var(--ink); background: var(--lime); }
+.trailers-section { border-top: 4px solid var(--lime); }
+.trailer-card { border: 3px solid var(--ink); }
+.trailer-info h3 { font-family: var(--display); text-transform: uppercase; }
+
+.project-card { border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--lime); }
+.project-card h3 { font-family: var(--display); text-transform: uppercase; }
+.project-status { border-width: 2px; }
+.empty-note { border-left-width: 5px; }
+.contact-section { border-top-width: 5px; }
+.contact-copy h2 { font-family: var(--display); text-transform: uppercase; }
+.feedback-card { border-width: 2px; background: var(--ink-soft); }
+.site-footer {
+  color: var(--surface);
+  border-top: 4px solid var(--lime);
+  background: var(--ink);
+}
+.footer-links { border-color: rgba(255, 254, 249, .24); }
+.footer-links a { color: var(--surface); }
+.footer-links a:hover { color: var(--lime); }
+.footer-bottom { color: rgba(255, 254, 249, .58); }
+
+.not-found {
+  margin-top: 28px;
+  margin-bottom: 35px;
+  padding-inline: clamp(20px, 4vw, 48px);
+  color: var(--surface);
+  border: 3px solid var(--ink);
+  background: var(--ink);
+  box-shadow: 8px 8px 0 var(--lime);
+}
+.not-found h1 { font-family: var(--display); text-transform: uppercase; }
+.not-found h1 em { color: var(--lime); }
+.not-found > p:not(.eyebrow) { color: rgba(255, 254, 249, .76); }
+.not-found-number { -webkit-text-stroke-color: rgba(255, 254, 249, .17); }
+
+@media (max-width: 700px) {
+  .menu-toggle { border-color: var(--lime); }
+  .menu-toggle span { background: var(--surface); }
+  .site-nav { background: var(--ink); border-bottom: 3px solid var(--lime); }
+  .site-nav a { color: var(--surface); border-bottom-color: rgba(255, 254, 249, .22); }
+  .site-nav a[aria-current="page"] { color: var(--ink); background: var(--lime); }
+  .home-hero { grid-template-columns: minmax(0, 1fr); }
+  .home-copy { min-width: 0; padding: 25px 21px 27px; }
+  .home-copy h1 { font-size: clamp(48px, 12.8vw, 78px); letter-spacing: -.08em; }
+  .routes-section { margin-block: 23px; padding: 18px; }
+  .route-card { min-height: 160px; }
+  .page-hero { grid-template-columns: minmax(0, 1fr); margin-block: 18px 25px; padding: 22px 18px 24px; box-shadow: 5px 5px 0 var(--lime); }
+  .page-hero-copy, .page-hero-index { min-width: 0; }
+  .page-hero-copy h1 { font-size: clamp(54px, 13vw, 80px); }
+  .page-hero-index { min-height: 115px; box-shadow: 4px 4px 0 var(--surface); }
+  .music-albums { border-top-width: 3px; border-bottom-width: 3px; }
+  .games-content { margin-block: 19px; padding-inline: 14px; }
+  .game-filters .filter-button { border-color: rgba(255, 254, 249, .8); }
+  .hobby-card { min-height: 145px; }
+  .not-found { margin-block: 18px 26px; padding: 35px 18px 48px; box-shadow: 5px 5px 0 var(--lime); }
+}
+
+@media (max-width: 380px) {
+  .home-copy { padding-inline: 17px; }
+  .home-copy h1 { font-size: 43px; }
+  .routes-section { padding-inline: 14px; }
+  .page-hero { padding-inline: 15px; }
+  .games-content { padding-inline: 11px; }
+}
+
+@media (max-width: 380px) {
+  .page-hero-copy h1 { font-size: 46px; letter-spacing: -.08em; }
+}
