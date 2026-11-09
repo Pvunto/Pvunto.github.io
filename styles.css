@@ -223,23 +223,28 @@ h1, h2, h3, p, figure { margin-top: 0; }
 .empty-note { grid-column: span 8; margin: 0; padding: 15px 16px; color: #4c544a; border-left: 3px solid var(--lime); background: rgba(255, 254, 249, .72); font-size: 11px; line-height: 1.65; }
 
 /* Contatti e footer: modulo a bozza, senza pubblicazione automatica. */
-.contact-section { padding: 66px 0 72px; color: var(--surface); background: var(--ink); border-top: 3px solid var(--lime); }
-.contact-inner { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(30px, 6vw, 76px); }
-.contact-copy .eyebrow { color: rgba(255, 254, 249, .68); }
-.contact-copy h2 { margin: 0; font-size: clamp(39px, 5vw, 61px); font-weight: 800; line-height: .96; letter-spacing: -.07em; }
+.contact-section { padding: 76px 0 84px; color: var(--surface); background: var(--ink); border-top: 5px solid var(--lime); }
+.contact-inner { display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); align-items: stretch; gap: clamp(22px, 4vw, 52px); }
+.contact-copy { position: relative; display: flex; min-width: 0; min-height: 100%; flex-direction: column; align-items: flex-start; justify-content: center; overflow: hidden; padding: clamp(23px, 3vw, 40px); border: 2px solid rgba(196, 227, 58, .58); border-left: 7px solid var(--lime); background: var(--ink-soft); box-shadow: 6px 6px 0 rgba(196, 227, 58, .34); }
+.contact-copy::after { position: absolute; top: 0; right: 0; width: 140px; height: 140px; content: ''; opacity: .55; background-image: radial-gradient(rgba(196, 227, 58, .62) .85px, transparent .98px); background-size: 8px 8px; mask-image: linear-gradient(135deg, #000, transparent 76%); pointer-events: none; }
+.contact-copy .eyebrow { position: relative; z-index: 1; display: inline-flex; width: fit-content; max-width: 100%; gap: 8px; margin: 0 0 22px; padding: 6px 9px; color: var(--lime); border: 1px solid rgba(196, 227, 58, .48); background: rgba(17, 19, 15, .28); font-size: 9px; letter-spacing: .1em; }
+.contact-copy .eyebrow > span:last-child { color: rgba(255, 254, 249, .68); }
+.contact-copy h2 { position: relative; z-index: 1; max-width: 100%; margin: 0; font-size: clamp(42px, 5.5vw, 74px); font-weight: 900; line-height: .84; letter-spacing: -.06em; }
 .contact-copy h2 span { color: var(--lime); }
-.contact-copy > p:not(.eyebrow) { max-width: 440px; margin: 17px 0 0; color: rgba(255, 254, 249, .72); font-size: 12px; }
-.feedback-card { padding: 18px 20px 20px; border: 1px solid rgba(196, 227, 58, .62); background: #1b1e19; }
-.feedback-card-head { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 12px; color: rgba(255, 254, 249, .65); border-bottom: 1px solid rgba(196, 227, 58, .28); font-size: 8px; }
-.feedback-form { display: grid; gap: 8px; padding-top: 15px; }
-.feedback-form label { margin-top: 3px; color: rgba(255, 254, 249, .66); font: 500 8px var(--mono); letter-spacing: .09em; }
-.feedback-form select, .feedback-form textarea { width: 100%; padding: 10px 11px; border: 1px solid rgba(255, 254, 249, .38); border-radius: 0; color: var(--surface); background: rgba(0, 0, 0, .22); font: 13px/1.5 var(--sans); }
-.feedback-form select option { color: var(--ink); background: var(--paper); }
-.feedback-form textarea { min-height: 112px; resize: vertical; }
-.feedback-form textarea::placeholder { color: rgba(255, 254, 249, .46); }
-.feedback-actions { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 7px; }
-.feedback-actions p { max-width: 250px; margin: 0; color: rgba(255, 254, 249, .62); font-size: 10px; }
-.feedback-actions .button { flex: 0 0 auto; }
+.contact-copy > p:not(.eyebrow) { position: relative; z-index: 1; max-width: 34ch; margin: 21px 0 0; color: rgba(255, 254, 249, .78); font-size: 13px; line-height: 1.7; }
+.feedback-card { min-width: 0; padding: 0; color: var(--ink); border: 3px solid var(--ink); background: var(--surface); box-shadow: 8px 8px 0 var(--lime); }
+.feedback-card-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; padding: 12px 17px; color: var(--ink); border-bottom: 2px solid var(--ink); background: var(--lime); font-size: 9px; letter-spacing: .08em; }
+.feedback-form { display: grid; gap: 8px; padding: clamp(17px, 2.3vw, 25px); }
+.feedback-form label { margin-top: 4px; color: #3d443a; font: 700 10px/1.4 var(--mono); letter-spacing: .09em; }
+.feedback-form label:first-child { margin-top: 0; }
+.feedback-form select, .feedback-form textarea { width: 100%; min-width: 0; padding: 11px 12px; border: 2px solid var(--ink); border-radius: 0; color: var(--ink); background: var(--paper); font: 14px/1.5 var(--sans); }
+.feedback-form select { min-height: 48px; }
+.feedback-form select option { color: var(--ink); background: var(--surface); }
+.feedback-form textarea { min-height: 150px; resize: vertical; }
+.feedback-form textarea::placeholder { color: #70776d; }
+.feedback-actions { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 18px; margin-top: 6px; padding-top: 14px; border-top: 1px solid var(--line); }
+.feedback-actions p { max-width: 35ch; margin: 0; color: #4f574e; font-size: 11px; line-height: 1.55; }
+.feedback-actions .button { min-height: 48px; }
 .site-footer { padding: 24px max(32px, calc((100% - 1240px) / 2)) 17px; border-top: 1px solid var(--line); background: var(--paper); }
 .footer-main { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
 .footer-brand { font-size: 11px; }
@@ -272,6 +277,15 @@ h1, h2, h3, p, figure { margin-top: 0; }
   .album-panel-copy { padding: 15px; }
   .projects-section-head { grid-template-columns: .8fr .9fr .9fr; }
   .hobby-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  .contact-inner { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .contact-copy { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: end; gap: 12px 26px; padding: 25px 28px; }
+  .contact-copy .eyebrow { grid-column: 1 / -1; margin-bottom: 2px; }
+  .contact-copy h2 { grid-column: 1; font-size: clamp(42px, 6vw, 54px); }
+  .contact-copy > p:not(.eyebrow) { grid-column: 2; align-self: end; margin: 0 0 3px; font-size: 12px; }
+  .feedback-form { padding: 21px 23px; }
 }
 
 @media (max-width: 700px) {
@@ -371,12 +385,18 @@ h1, h2, h3, p, figure { margin-top: 0; }
   .project-card h3 { margin-top: 19px; font-size: 22px; }
   .projects-group { padding-top: 24px; padding-bottom: 25px; }
   .projects-completed { padding-bottom: 49px; }
-  .contact-section { padding: 49px 0 53px; }
-  .contact-inner { grid-template-columns: 1fr; gap: 24px; }
-  .contact-copy h2 { font-size: 43px; }
-  .feedback-card { padding: 15px; }
+  .contact-section { padding: 54px 0 59px; }
+  .contact-inner { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .contact-copy { display: block; min-height: 0; padding: 22px 20px 24px; }
+  .contact-copy .eyebrow { margin-bottom: 16px; }
+  .contact-copy h2 { font-size: clamp(43px, 11.8vw, 58px); }
+  .contact-copy > p:not(.eyebrow) { margin-top: 16px; font-size: 12px; }
+  .feedback-card { box-shadow: 6px 6px 0 var(--lime); }
+  .feedback-card-head { padding: 12px 14px; font-size: 8.5px; }
+  .feedback-form { padding: 17px 15px; }
   .feedback-form select, .feedback-form textarea { font-size: 16px; }
-  .feedback-actions { align-items: stretch; flex-direction: column; }
+  .feedback-form textarea { min-height: 140px; }
+  .feedback-actions { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   .feedback-actions p { max-width: none; }
   .feedback-actions .button { width: 100%; }
   .site-footer { padding: 20px 20px 15px; }
@@ -434,6 +454,14 @@ h1, h2, h3, p, figure { margin-top: 0; }
   .album-artist, .album-track { font-size: 9px; }
   .album-playlist-link { font-size: 8px; }
   .footer-bottom { font-size: 7px; }
+  .contact-section { padding-block: 45px 50px; }
+  .contact-inner { gap: 16px; }
+  .contact-copy { padding: 19px 15px 21px; border-left-width: 6px; }
+  .contact-copy h2 { font-size: 41px; }
+  .feedback-card-head { gap: 6px 8px; padding: 10px 11px; }
+  .feedback-form { padding: 14px 11px; }
+  .feedback-form textarea { min-height: 132px; }
+  .feedback-actions .button { min-height: 46px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -686,7 +714,7 @@ body {
 .empty-note { border-left-width: 5px; }
 .contact-section { border-top-width: 5px; }
 .contact-copy h2 { font-family: var(--display); text-transform: uppercase; }
-.feedback-card { border-width: 2px; background: var(--ink-soft); }
+.feedback-card { color: var(--ink); border: 3px solid var(--ink); background: var(--surface); }
 .site-footer {
   color: var(--surface);
   border-top: 4px solid var(--lime);
