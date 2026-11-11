@@ -23,14 +23,14 @@
       if (event.key === 'Escape') closeMenu();
     });
     window.addEventListener('resize', () => {
-      if (window.matchMedia('(min-width: 701px)').matches) closeMenu();
+      if (window.matchMedia('(min-width: 761px)').matches) closeMenu();
     }, { passive: true });
   }
 
   const filters = [...document.querySelectorAll('.filter-button[data-filter]')];
   const cards = [...document.querySelectorAll('.game-card[data-tags]')];
   const status = document.getElementById('game-filter-status');
-  const filterLabels = { all: 'elenco completo', preferito: 'preferiti', attuale: 'titoli attuali' };
+  const filterLabels = { all: 'elenco completo', archivio: 'altri preferiti non attuali', attuale: 'titoli attuali' };
 
   if (filters.length && cards.length) {
     const countFor = (filter) => cards.filter((card) => filter === 'all' || card.dataset.tags.split(/\s+/).includes(filter)).length;

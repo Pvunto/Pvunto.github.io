@@ -174,7 +174,7 @@ def music_albums(data: dict) -> str:
 def game_cards(data: dict) -> str:
     cards = []
     for index, game in enumerate(data["games"], start=1):
-        tags = "preferito attuale" if game.get("current") else "preferito"
+        tags = "preferito attuale" if game.get("current") else "preferito archivio"
         current_class = " is-current" if game.get("current") else ""
         if game.get("current"):
             layout = "feature"
@@ -292,6 +292,7 @@ def render(data: dict) -> None:
         "games": {
             "__GAME_COUNT__": str(len(data["games"])),
             "__CURRENT_COUNT__": str(sum(bool(game.get("current")) for game in data["games"])),
+            "__ARCHIVE_COUNT__": str(sum(not bool(game.get("current")) for game in data["games"])),
             "__CURRENT_GAME_LABEL__": esc(
                 "I titoli attuali sono " + ", ".join(game["title"] for game in data["games"] if game.get("current")) + "."
             ) if any(game.get("current") for game in data["games"]) else "Non ho indicato titoli attuali.",
@@ -300,6 +301,9 @@ def render(data: dict) -> None:
         },
         "projects": {
             "__CURRENT_PROJECT_COUNT__": str(len(data["projects"]["current"])),
+            "__CURRENT_PROJECT_COUNT_LABEL__": (
+                "progetto elencato" if len(data["projects"]["current"]) == 1 else "progetti elencati"
+            ),
             "__CURRENT_PROJECTS__": "\n".join(
                 project_card(project, index) for index, project in enumerate(data["projects"]["current"], start=1)
             ) or '<p class="empty-note">Non ci sono progetti attuali da mostrare.</p>',
