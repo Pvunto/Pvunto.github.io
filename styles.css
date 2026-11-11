@@ -1011,14 +1011,14 @@ section[id] {
 
 .album-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
 }
 
 .album-panel {
-  display: grid;
+  display: flex;
   min-width: 0;
-  grid-template-columns: minmax(150px, .95fr) minmax(0, 1.05fr);
+  flex-direction: column;
   border: 2px solid var(--ink);
   color: var(--ink);
   background: var(--surface);
@@ -1026,17 +1026,11 @@ section[id] {
 
 .album-cover {
   display: block;
+  aspect-ratio: 1;
   min-width: 0;
   overflow: hidden;
-  align-self: stretch;
-  border-right: 1px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
   background: var(--paper-deep);
-}
-
-.album-panel:nth-child(even) .album-cover {
-  order: 2;
-  border-right: 0;
-  border-left: 1px solid var(--ink);
 }
 
 .album-cover picture {
@@ -1046,6 +1040,7 @@ section[id] {
 }
 
 .album-cover img {
+  display: block;
   width: 100%;
   height: 100%;
   aspect-ratio: 1;
@@ -1056,61 +1051,43 @@ section[id] {
   display: flex;
   min-width: 0;
   flex-direction: column;
-  align-items: flex-start;
-  padding: clamp(14px, 2vw, 22px);
-}
-
-.album-playlist-label {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 7px;
-  margin: 0;
-  color: var(--muted);
-  font: 550 9px/1.5 var(--mono);
-  letter-spacing: .055em;
-  text-transform: uppercase;
-}
-
-.album-playlist-label span {
-  display: inline-grid;
-  min-width: 24px;
-  min-height: 24px;
-  place-items: center;
-  border: 1px solid var(--ink);
-  color: var(--ink);
-  background: var(--lime);
+  gap: 10px;
+  padding: clamp(13px, 1.4vw, 19px);
+  flex: 1;
 }
 
 .album-copy h3 {
-  margin: 12px 0 3px;
+  margin: 0;
   font-family: var(--display);
-  font-size: clamp(20px, 2.2vw, 28px);
+  font-size: clamp(20px, 1.6vw, 26px);
   font-weight: 850;
   line-height: 1.02;
   letter-spacing: -.015em;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+}
+
+.album-meta {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
 }
 
 .album-artist {
   margin: 0;
   color: var(--muted);
-  font-size: 11px;
-}
-
-.album-track {
-  margin: 11px 0 9px;
-  color: var(--ink-soft);
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 700;
   overflow-wrap: anywhere;
 }
 
-.album-track span {
-  display: block;
-  margin-bottom: 3px;
+.album-year {
+  flex: none;
   color: var(--muted);
   font: 550 9px/1.4 var(--mono);
-  letter-spacing: .08em;
+  letter-spacing: .07em;
 }
 
 .album-playlist-link {
@@ -1118,7 +1095,7 @@ section[id] {
   min-height: 40px;
   align-items: center;
   gap: 8px;
-  margin-top: auto;
+  margin-top: 1px;
   padding-top: 9px;
   border-top: 1px solid var(--line);
   font-size: 10px;
@@ -2050,6 +2027,10 @@ section[id] {
     gap: 24px;
   }
 
+  .album-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .game-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
@@ -2453,26 +2434,21 @@ section[id] {
   }
 
   .album-panel {
-    grid-template-columns: minmax(96px, .84fr) minmax(0, 1.16fr);
+    width: min(100%, 460px);
+    justify-self: center;
   }
 
   .album-copy {
-    padding: 12px;
+    padding: 15px;
   }
 
   .album-copy h3 {
-    margin-top: 13px;
-    font-size: clamp(18px, 5vw, 23px);
-  }
-
-  .album-track {
-    margin-block: 10px 9px;
-    font-size: 10px;
+    font-size: clamp(21px, 5vw, 28px);
   }
 
   .album-playlist-link {
-    min-height: 36px;
-    font-size: 9px;
+    min-height: 42px;
+    font-size: 10px;
   }
 
   .games-toolbar h2 {

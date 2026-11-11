@@ -30,6 +30,7 @@
       {
         "title": "In Utero",
         "artist": "Nirvana",
+        "year": 1993,
         "track": "Serve The Servants",
         "playlistTitle": "Nirvana Mix",
         "playlistUrl": "https://open.spotify.com/playlist/1SWmUTY21H73XoOhmtyUjZ",
@@ -41,6 +42,7 @@
       {
         "title": "Three Cheers for Sweet Revenge",
         "artist": "My Chemical Romance",
+        "year": 2004,
         "track": "Helena",
         "playlistTitle": "MCR mix",
         "playlistUrl": "https://open.spotify.com/playlist/2cxf9RRlmiNxspb4ZTrOYo",
@@ -52,6 +54,7 @@
       {
         "title": "Slipknot",
         "artist": "Slipknot",
+        "year": 1999,
         "track": "742617000027",
         "playlistTitle": "Slipknot mix likes",
         "playlistUrl": "https://open.spotify.com/playlist/0ZCvgCRc1OXepx9fWshBwZ",
@@ -61,15 +64,16 @@
         "alt": "Copertina dell’album Slipknot degli Slipknot"
       },
       {
-        "title": "System Of A Down",
-        "artist": "System Of A Down",
+        "title": "System of a Down",
+        "artist": "System of a Down",
+        "year": 1998,
         "track": "Suite-Pee",
         "playlistTitle": "SOAD mix likes",
         "playlistUrl": "https://open.spotify.com/playlist/0IIxtudsUOkQWUgj8wFOZu",
         "albumUrl": "https://open.spotify.com/album/7p5mnxLTjbvs4kInkK8za9",
         "cover": "./assets/album-soad-640.webp",
         "mobileCover": "./assets/album-soad-320.webp",
-        "alt": "Copertina dell’album System Of A Down"
+        "alt": "Copertina dell’album omonimo dei System of a Down"
       }
     ],
     "superfanUrl": "https://www.superfan.social/"

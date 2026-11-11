@@ -24,7 +24,7 @@ PAGES = [
         "key": "music",
         "output": "musica.html",
         "title": "Musica e ascolti personali — Punto",
-        "description": "Quattro copertine di album presenti nei mix pubblici Spotify di Punto, aree d’ascolto e collegamento al profilo.",
+        "description": "Catalogo di quattro album con copertine, artisti, anni di pubblicazione e collegamenti ai mix Spotify di Punto.",
         "keywords": "Punto, musica, ascolti, playlist, colonne sonore, Spotify",
     },
     {
@@ -87,6 +87,8 @@ def read_data() -> dict:
     if not data["music"].get("albums"):
         raise ValueError("La pagina Musica deve contenere almeno un album.")
     for album in data["music"]["albums"]:
+        if not isinstance(album.get("year"), int) or not 1900 <= album["year"] <= 2100:
+            raise ValueError(f"Anno di pubblicazione non valido per l’album: {album.get('title', 'senza titolo')}")
         for key in ("cover", "mobileCover"):
             asset = asset_path(album[key])
             if not asset.is_file():
@@ -152,20 +154,26 @@ def music_categories(data: dict) -> str:
 def music_albums(data: dict) -> str:
     cards = []
     for index, album in enumerate(data["music"]["albums"], start=1):
-        title = esc(album["title"])
-        artist = esc(album["artist"])
+        title_raw = str(album["title"])
+        artist_raw = str(album["artist"])
+        title = esc(title_raw)
+        artist = esc(artist_raw)
+        year = int(album["year"])
         album_url = esc(album["albumUrl"])
         playlist_url = esc(album["playlistUrl"])
         cover = esc(album["cover"])
         mobile = esc(album["mobileCover"])
+        if title_raw.casefold() == artist_raw.casefold():
+            cover_label = f"Apri l’album omonimo di {artist_raw} ({year}) su Spotify"
+        else:
+            cover_label = f"Apri l’album {title_raw} di {artist_raw} ({year}) su Spotify"
         cards.append(
             f'<article class="album-panel album-panel--{index:02d}">'
-            f'<a class="album-cover" href="{album_url}" target="_blank" rel="noopener noreferrer" aria-label="Apri l’album {title} di {artist} su Spotify">'
-            f'<picture><source type="image/webp" srcset="{mobile} 320w, {cover} 640w" sizes="(max-width: 380px) 82vw, (max-width: 700px) 42vw, (max-width: 1000px) 34vw, 28vw">'
+            f'<a class="album-cover" href="{album_url}" target="_blank" rel="noopener noreferrer" aria-label="{esc(cover_label)}">'
+            f'<picture><source type="image/webp" srcset="{mobile} 320w, {cover} 640w" sizes="(max-width: 560px) min(460px, calc(100vw - 32px)), (max-width: 1050px) calc((100vw - 52px) / 2), min(302px, 24vw)">'
             f'<img src="{cover}" width="640" height="640" alt="{esc(album["alt"])}" loading="lazy" decoding="async"></picture></a>'
-            f'<div class="album-copy"><p class="album-playlist-label"><span>{index:02d}</span> MIX / {esc(album["playlistTitle"])}</p>'
-            f'<h3>{title}</h3><p class="album-artist">{artist}</p>'
-            f'<p class="album-track"><span>BRANO</span> “{esc(album["track"])}”</p>'
+            f'<div class="album-copy"><h3>{title}</h3>'
+            f'<div class="album-meta"><p class="album-artist">{artist}</p><time class="album-year" datetime="{year}">{year}</time></div>'
             f'<a class="album-playlist-link" href="{playlist_url}" target="_blank" rel="noopener noreferrer">Apri il mix Spotify <span aria-hidden="true">↗</span></a></div></article>'
         )
     return "\n".join(cards)
